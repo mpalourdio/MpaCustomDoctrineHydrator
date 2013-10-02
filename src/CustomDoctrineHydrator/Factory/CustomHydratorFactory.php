@@ -8,9 +8,9 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CustomHydratorFactory\Factory;
+namespace CustomDoctrineHydrator\Factory;
 
-use Application\Stdlib\Hydrator\Strategy\DateToStringStrategy;
+use CustomDoctrineHydrator\Stdlib\Hydrator\Strategy\DateToStringStrategy;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use Zend\ServiceManager\FactoryInterface;
@@ -23,7 +23,7 @@ class CustomHydratorFactory implements FactoryInterface
 
     /**
      * @param ServiceLocatorInterface $serviceLocator
-     * @return \CustomHydratorFactory\Factory\CustomHydratorFactory
+     * @return \CustomDoctrineHydrator\Factory\CustomHydratorFactory
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
