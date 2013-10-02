@@ -8,7 +8,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CustomHydratorFactory\Stdlib\Hydrator\Strategy;
+namespace CustomDoctrineHydrator\Stdlib\Hydrator\Strategy;
 
 use DateTime;
 use IntlDateFormatter;
