@@ -32,7 +32,7 @@ Those parameters are supposed to be configurable in the future...
 Installation
 ============
 Add **at the top** of your composer.json
-"minimum-stability": "dev"
+"minimum-stability": "dev",
 "prefer-stable": true
 
 Add to the **require** list
