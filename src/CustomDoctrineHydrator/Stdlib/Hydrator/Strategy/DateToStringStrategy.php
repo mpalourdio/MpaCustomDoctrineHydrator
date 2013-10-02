@@ -29,9 +29,6 @@ class DateToStringStrategy implements StrategyInterface
                 $value->getTimezone(),
                 IntlDateFormatter::GREGORIAN
             );
-            var_dump($fmt->format($value));
-            var_dump(Locale::getDefault());
-            var_dump($value->getTimezone());
 
             return $fmt->format($value);
         } else {
