@@ -1,0 +1,31 @@
+{
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "name": "mpalourdio/customdoctrinehydrator",
+    "description": "Simple Doctrine ORM Factory module that handles DateTime hydration",
+    "license": "MIT",
+    "keywords": [
+        "doctrine",
+        "orm",
+        "module",
+        "zf2"
+    ],
+    "homepage": "https://github.com/mpalourdio/CustomDoctrineHydrator",
+    "authors": [
+        {
+            "name": "@mpalourdio",
+            "email": "mpalourdio@gmail.com",
+            "homepage": "https://github.com/mpalourdio"
+        },
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "doctrine/doctrine-orm-module": "0.8.*@dev"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "DoctrineORMModule\\": "src/"
+        }
+    }
+}
