@@ -31,11 +31,11 @@ Those parameters are supposed to be configurable in the future...
 
 Installation
 ============
-Add **at the top** of your composer.json
-"minimum-stability": "dev",
+Add **at the top** of your composer.json  
+"minimum-stability": "dev",  
 "prefer-stable": true
 
-Add to the **require** list
+Add to the **require** list  
 "mpalourdio/customdoctrinehydrator": "dev-master"
 
-Add CustomDoctrineHydrator to your **modules list** in **application.config.php**
+Add "CustomDoctrineHydrator" to your **modules list** in **application.config.php**
