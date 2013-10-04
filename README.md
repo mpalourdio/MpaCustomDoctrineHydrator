@@ -9,7 +9,15 @@ Object provided to Escape helper, but flags do not allow recursion
 CustomDoctrineHydrator
 ======================
 
-Simple factory that helps you deal with Doctrine Module Hydrator and date / datetime colums
+Simple factory that helps you deal with Doctrine Module Hydrator and date / datetime columns
+
+Configuration
+=====
+copy **customdoctrinehydrator.config.global.php.dist** in your autoload folder and rename it by removing the .dist
+extension
+
+By default, days and month are 2 digits formatted,and years are 4 digits formatted. YOu can change that in
+**customdoctrinehydrator.config.global.php**
 
 Usage
 =====
@@ -21,18 +29,16 @@ $form->setHydrator($hydrator);
 
 If your entity contains date columns, \DateTime objects will be automatically assigned to a strategy that will extract them to strings.
 
-The strategy automaticcaly formats your \DateTme object with those parameters :
+The strategy automatically formats your \DateTme object with those parameters :
   * The default locale
   * The IntlDateFormatter::SHORT/IntlDateFormatter::NONE
   * The timezone
   * Gregorian calendar
 
-Those parameters are supposed to be configurable in the future...
-
 Installation
 ============
 Add **at the top** of your composer.json  
-"minimum-stability": "dev",  
+"minimum-stability": "dev",
 "prefer-stable": true
 
 Add to the **require** list  
