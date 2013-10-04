@@ -20,6 +20,8 @@ class CustomHydratorFactory implements FactoryInterface
 {
     /** @var EntityManager $em */
     protected $em;
+    /** @var ServiceLocatorInterface $sm */
+    protected $sm;
 
     /**
      * @param ServiceLocatorInterface $serviceLocator
@@ -28,6 +30,7 @@ class CustomHydratorFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $this->em = $serviceLocator->get('doctrine.entitymanager.orm_default');
+        $this->sm = $serviceLocator;
 
         return $this;
     }
@@ -44,7 +47,8 @@ class CustomHydratorFactory implements FactoryInterface
         foreach ($columns as $column) {
             $type = $this->em->getClassMetadata($entity)->getTypeOfColumn($column);
             if ('date' === $type) {
-                $hydrator->addStrategy($column, new DateToStringStrategy());
+                $strategy = $this->sm->get('datetostringstrategy');
+                $hydrator->addStrategy($column, $strategy);
             }
         }
 

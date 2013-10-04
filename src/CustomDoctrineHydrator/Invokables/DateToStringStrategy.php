@@ -8,15 +8,38 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CustomDoctrineHydrator\Stdlib\Hydrator\Strategy;
+namespace CustomDoctrineHydrator\Invokables;
 
 use DateTime;
 use IntlDateFormatter;
 use Locale;
+use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
-class DateToStringStrategy implements StrategyInterface
+class DateToStringStrategy implements StrategyInterface, ServiceLocatorAwareInterface
 {
+    protected $sm;
+
+    /**
+     * Set service locator
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+        $this->sm = $serviceLocator;
+    }
+
+    /**
+     * Get service locator
+     *
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->sm;
+    }
+
     public function extract($value)
     {
         /** @var $value DateTime */

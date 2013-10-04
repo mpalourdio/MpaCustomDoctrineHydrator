@@ -9,12 +9,15 @@
  */
 
 return array(
-    'service_manager' => array(
-        'factories'  => array(
-            'customdoctrinehydrator' => 'CustomDoctrineHydrator\Factory\CustomHydratorFactory',
+    'customdoctrinehydrator' => array(
+        'date'     => array(
+            'date_format'     => 3, //IntlDateFormatter::SHORT
+            'time_format'     => -1, //IntlDateFormatter::NONE
+            'cal_format'      => 1, //IntlDateFormatter::GREGORIAN
+            'four_chars_year' => true, //year format will be yyyy
+            'two_chars_month' => true, //month format will be MM
         ),
-        'invokables' => array(
-            'datetostringstrategy' => 'CustomDoctrineHydrator\Factory\DateToStringStrategy',
-        )
+        // @todo
+        'datetime' => array(),
     ),
 );
