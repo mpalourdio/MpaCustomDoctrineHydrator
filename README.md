@@ -13,11 +13,13 @@ Simple factory that helps you deal with Doctrine Module Hydrator and date / date
 
 Configuration
 =====
-copy **customdoctrinehydrator.config.global.php.dist** in your autoload folder and rename it by removing the .dist
-extension
+Copy **customdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
+extension.
 
-By default, days and month are 2 digits formatted,and years are 4 digits formatted. YOu can change that in
-**customdoctrinehydrator.config.global.php**
+By default, days and month are 2 digits formatted, and years are 4 digits formatted. You can change that in
+**customdoctrinehydrator.config.global.php**. It follows the php IntlDateFormatter Predefined Constants values.
+
+See http://php.net/manual/en/class.intldateformatter.php
 
 Usage
 =====
@@ -38,7 +40,7 @@ The strategy automatically formats your \DateTme object with those parameters :
 Installation
 ============
 Add **at the top** of your composer.json  
-"minimum-stability": "dev",
+"minimum-stability": "dev",  
 "prefer-stable": true
 
 Add to the **require** list  
