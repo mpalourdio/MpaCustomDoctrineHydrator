@@ -31,7 +31,7 @@ class DateToStringStrategy implements StrategyInterface
                 Locale::getDefault(),
                 IntlDateFormatter::SHORT,
                 IntlDateFormatter::NONE,
-                $value->getTimezone(),
+                $value->getTimezone()->getName(),
                 IntlDateFormatter::GREGORIAN
             );
 
