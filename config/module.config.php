@@ -14,7 +14,7 @@ return array(
             'customdoctrinehydrator' => 'CustomDoctrineHydrator\Factory\CustomHydratorFactory',
         ),
         'invokables' => array(
-            'datetostringstrategy' => 'CustomDoctrineHydrator\Factory\DateToStringStrategy',
+            'datetostringstrategy' => 'CustomDoctrineHydrator\Invokables\DateToStringStrategy',
         )
     ),
 );

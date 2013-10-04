@@ -11,11 +11,18 @@
 return array(
     'customdoctrinehydrator' => array(
         'date'     => array(
-            'date_format'     => 3, //IntlDateFormatter::SHORT
-            'time_format'     => -1, //IntlDateFormatter::NONE
-            'cal_format'      => 1, //IntlDateFormatter::GREGORIAN
-            'four_chars_year' => true, //year format will be yyyy
-            'two_chars_month' => true, //month format will be MM
+            //IntlDateFormatter::SHORT
+            'date_format'      => 3,
+            //IntlDateFormatter::NONE
+            'time_format'      => -1,
+            //IntlDateFormatter::GREGORIAN
+            'cal_format'       => 1,
+            //year format will be yyyy
+            'four_digits_year' => true,
+            //month format will be dd
+            'two_digits_day'   => true,
+            //month format will be MM
+            'two_digits_month' => true,
         ),
         // @todo
         'datetime' => array(),

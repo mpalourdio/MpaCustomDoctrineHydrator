@@ -13,6 +13,7 @@ namespace CustomDoctrineHydrator\Invokables;
 use DateTime;
 use IntlDateFormatter;
 use Locale;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
@@ -50,23 +51,34 @@ class DateToStringStrategy implements StrategyInterface, ServiceLocatorAwareInte
                         $value)
                 );
             }
+
+            $cdfConfig  = $this->getServiceLocator()->get('Config');
+            $dateConfig = $cdfConfig['customdoctrinehydrator']['date'];
+
             $fmt = new IntlDateFormatter(
                 Locale::getDefault(),
-                IntlDateFormatter::SHORT,
-                IntlDateFormatter::NONE,
+                $dateConfig['date_format'],
+                $dateConfig['time_format'],
                 $value->getTimezone()->getName(),
-                IntlDateFormatter::GREGORIAN
+                $dateConfig['cal_format']
             );
 
-            //we want years to always be 4 chars when pattern has only 2 y or 2 Y
-            //substr_count is case sensitive
-            if (substr_count(strtolower($fmt->getPattern()), "y") === 2) {
-                $fmt->setPattern(str_ireplace('y', 'yy', $fmt->getPattern()));
+            if ($dateConfig['four_digits_year']) {
+                if (substr_count(strtolower($fmt->getPattern()), "y") === 2) {
+                    $fmt->setPattern(str_ireplace('y', 'yy', $fmt->getPattern()));
+                }
             }
 
-            //we want days to always be 2 chars when pattern has only 1 d
-            if (substr_count($fmt->getPattern(), "d") === 1) {
-                $fmt->setPattern(str_ireplace('d', 'dd', $fmt->getPattern()));
+            if ($dateConfig['two_digits_month']) {
+                if (substr_count($fmt->getPattern(), "M") === 1) {
+                    $fmt->setPattern(str_ireplace('M', 'MM', $fmt->getPattern()));
+                }
+            }
+
+            if ($dateConfig['two_digits_day']) {
+                if (substr_count($fmt->getPattern(), "d") === 1) {
+                    $fmt->setPattern(str_ireplace('d', 'dd', $fmt->getPattern()));
+                }
             }
 
             return $fmt->format($value);
