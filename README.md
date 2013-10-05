@@ -31,7 +31,7 @@ $form->setHydrator($hydrator);
 
 If your entity contains date columns, \DateTime objects will be automatically assigned to a strategy that will extract them to strings.
 
-The strategy automatically formats your \DateTme object with those parameters :
+The strategy automatically formats your \DateTime object with those parameters :
   * The default locale
   * The IntlDateFormatter::SHORT/IntlDateFormatter::NONE
   * The timezone
