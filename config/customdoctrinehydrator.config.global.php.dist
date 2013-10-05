@@ -19,10 +19,10 @@ return array(
             'cal_format'       => 1,
             //year format will be yyyy
             'four_digits_year' => true,
-            //month format will be dd
-            'two_digits_day'   => true,
             //month format will be MM
             'two_digits_month' => true,
+            //month format will be dd
+            'two_digits_day'   => true,
         ),
         // @todo
         'datetime' => array(),

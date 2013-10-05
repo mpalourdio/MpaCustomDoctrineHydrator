@@ -49,6 +49,9 @@ class CustomHydratorFactory implements FactoryInterface
             if ('date' === $type) {
                 $strategy = $this->sm->get('datetostringstrategy');
                 $hydrator->addStrategy($column, $strategy);
+            } elseif ('datetime' === $type) {
+                /*$strategy = $this->sm->get('datetimetostringstrategy');
+                $hydrator->addStrategy($column, $strategy);*/
             }
         }
 
