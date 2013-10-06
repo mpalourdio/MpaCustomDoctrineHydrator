@@ -25,6 +25,6 @@ return array(
             'two_digits_day'   => true,
         ),
         // @todo
-        'datetime' => array(),
+        'datetime' => array(), //http://userguide.icu-project.org/formatparse/datetime
     ),
 );
