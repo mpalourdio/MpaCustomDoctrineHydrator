@@ -10,9 +10,9 @@
 
 namespace CustomDoctrineHydrator\Factory;
 
+use CustomDoctrineHydrator\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use CustomDoctrineHydrator\Stdlib\Hydrator\Strategy\DateToStringStrategy;
 use Doctrine\ORM\EntityManager;
-use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
