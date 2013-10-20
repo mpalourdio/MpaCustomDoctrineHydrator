@@ -17,7 +17,7 @@
  * <http://www.doctrine-project.org>.
  */
 
-namespace CustomDoctrineHydrator\Stdlib\Hydrator;
+namespace MpaCustomDoctrineHydrator\Stdlib\Hydrator;
 
 use DateTime;
 use IntlDateFormatter;

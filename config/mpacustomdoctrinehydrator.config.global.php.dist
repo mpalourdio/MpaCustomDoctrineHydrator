@@ -9,7 +9,7 @@
  */
 
 return array(
-    'customdoctrinehydrator' => array(
+    'mpacustomdoctrinehydrator' => array(
         'date'     => array(
             //IntlDateFormatter::SHORT
             'date_format'      => 3,

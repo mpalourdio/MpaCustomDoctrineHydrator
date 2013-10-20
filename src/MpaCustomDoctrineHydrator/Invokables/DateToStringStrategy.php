@@ -8,7 +8,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CustomDoctrineHydrator\Invokables;
+namespace MpaCustomDoctrineHydrator\Invokables;
 
 use DateTime;
 use IntlDateFormatter;
@@ -53,7 +53,7 @@ class DateToStringStrategy implements StrategyInterface, ServiceLocatorAwareInte
             }
 
             $cdfConfig  = $this->getServiceLocator()->get('Config');
-            $dateConfig = $cdfConfig['customdoctrinehydrator']['date'];
+            $dateConfig = $cdfConfig['mpacustomdoctrinehydrator']['date'];
 
             $fmt = new IntlDateFormatter(
                 Locale::getDefault(),

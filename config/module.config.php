@@ -11,11 +11,11 @@
 return array(
     'service_manager' => array(
         'factories'  => array(
-            'customdoctrinehydrator' => 'CustomDoctrineHydrator\Factory\CustomHydratorFactory',
+            'customdoctrinehydrator' => 'MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory',
         ),
         'invokables' => array(
-            'datetostringstrategy'     => 'CustomDoctrineHydrator\Invokables\DateToStringStrategy',
-            'datetimetostringstrategy' => 'CustomDoctrineHydrator\Invokables\DatetimeToStringStrategy',
+            'datetostringstrategy'     => 'MpaCustomDoctrineHydrator\Invokables\DateToStringStrategy',
+            'datetimetostringstrategy' => 'MpaCustomDoctrineHydrator\Invokables\DatetimeToStringStrategy',
         )
     ),
 );

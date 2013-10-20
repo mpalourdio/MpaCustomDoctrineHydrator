@@ -6,18 +6,18 @@ vendor/zendframework/zendframework/library/Zend/View/Helper/Escaper/AbstractHelp
 Message:
 Object provided to Escape helper, but flags do not allow recursion
 
-CustomDoctrineHydrator
+MpaCustomDoctrineHydrator
 ======================
 
 Simple factory that helps you deal with Doctrine Module Hydrator and date / datetime columns
 
 Configuration
 =====
-Copy **customdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
+Copy **mpacustomdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
 extension.
 
 By default, days and month are 2 digits formatted, and years are 4 digits formatted. You can change that in
-**customdoctrinehydrator.config.global.php**. It follows the php IntlDateFormatter Predefined Constants values.
+**mpacustomdoctrinehydrator.config.global.php**. It follows the php IntlDateFormatter Predefined Constants values.
 
 See http://php.net/manual/en/class.intldateformatter.php
 
@@ -44,6 +44,6 @@ Add **at the top** of your composer.json
 "prefer-stable": true
 
 Add to the **require** list  
-"mpalourdio/customdoctrinehydrator": "dev-master"
+"mpalourdio/mpa-custom-doctrine-hydrator": "dev-master"
 
-Add "CustomDoctrineHydrator" to your **modules list** in **application.config.php**
+Add "MpaCustomDoctrineHydrator" to your **modules list** in **application.config.php**

@@ -8,7 +8,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CustomDoctrineHydrator;
+namespace MpaCustomDoctrineHydrator;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 
