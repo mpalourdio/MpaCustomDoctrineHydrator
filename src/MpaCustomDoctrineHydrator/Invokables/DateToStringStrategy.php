@@ -11,7 +11,6 @@
 namespace MpaCustomDoctrineHydrator\Invokables;
 
 use DateTime;
-use IntlDateFormatter;
 use Locale;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -52,36 +51,10 @@ class DateToStringStrategy implements StrategyInterface, ServiceLocatorAwareInte
                 );
             }
 
-            $cdfConfig  = $this->getServiceLocator()->get('Config');
-            $dateConfig = $cdfConfig['mpacustomdoctrinehydrator']['date'];
+            $cdhConfig  = $this->getServiceLocator()->get('Config');
+            $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
 
-            $fmt = new IntlDateFormatter(
-                Locale::getDefault(),
-                $dateConfig['date_format'],
-                $dateConfig['time_format'],
-                $value->getTimezone()->getName(),
-                $dateConfig['cal_format']
-            );
-
-            if ($dateConfig['four_digits_year']) {
-                if (substr_count(strtolower($fmt->getPattern()), "y") === 2) {
-                    $fmt->setPattern(str_ireplace('y', 'yy', $fmt->getPattern()));
-                }
-            }
-
-            if ($dateConfig['two_digits_month']) {
-                if (substr_count($fmt->getPattern(), "M") === 1) {
-                    $fmt->setPattern(str_ireplace('M', 'MM', $fmt->getPattern()));
-                }
-            }
-
-            if ($dateConfig['two_digits_day']) {
-                if (substr_count($fmt->getPattern(), "d") === 1) {
-                    $fmt->setPattern(str_ireplace('d', 'dd', $fmt->getPattern()));
-                }
-            }
-
-            return $fmt->format($value);
+            return $value->format($dateConfig['date_format']);
         } else {
             return $value;
         }

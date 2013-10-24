@@ -18,4 +18,9 @@ return array(
             'datetimetostringstrategy' => 'MpaCustomDoctrineHydrator\Invokables\DatetimeToStringStrategy',
         )
     ),
+    'filters'         => array(
+        'invokables' => array(
+            'DateToDateTime' => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime'
+        )
+    )
 );

@@ -10,21 +10,15 @@
 
 return array(
     'mpacustomdoctrinehydrator' => array(
-        'date'     => array(
-            //IntlDateFormatter::SHORT
-            'date_format'      => 3,
-            //IntlDateFormatter::NONE
-            'time_format'      => -1,
-            //IntlDateFormatter::GREGORIAN
-            'cal_format'       => 1,
-            //year format will be yyyy
-            'four_digits_year' => true,
-            //month format will be MM
-            'two_digits_month' => true,
-            //month format will be dd
-            'two_digits_day'   => true,
+        'formats'  => array(
+            'fr-FR' => array(
+                'date_format'    => 'd/m/Y',
+                'time_format'    => 'H:i:s',
+            ),
+            'fr-CH' => array(
+                'date_format'    => 'd.m.Y',
+                'time_format'    => 'H:i:s',
+            )
         ),
-        // @todo
-        'datetime' => array(), //http://userguide.icu-project.org/formatparse/datetime
     ),
 );

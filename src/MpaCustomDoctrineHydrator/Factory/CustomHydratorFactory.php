@@ -10,7 +10,7 @@
 
 namespace MpaCustomDoctrineHydrator\Factory;
 
-use MpaCustomDoctrineHydrator\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\DateToStringStrategy;
 use Doctrine\ORM\EntityManager;
 use Zend\ServiceManager\FactoryInterface;
