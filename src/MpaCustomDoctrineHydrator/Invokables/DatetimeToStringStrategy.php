@@ -10,9 +10,6 @@
 
 namespace MpaCustomDoctrineHydrator\Invokables;
 
-use DateTime;
-use IntlDateFormatter;
-use Locale;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;

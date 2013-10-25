@@ -16,10 +16,9 @@ Configuration
 Copy **mpacustomdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
 extension.
 
-By default, days and month are 2 digits formatted, and years are 4 digits formatted. You can change that in
-**mpacustomdoctrinehydrator.config.global.php**. It follows the php IntlDateFormatter Predefined Constants values.
+Add your own date formats that are compliant with php \DateTime
 
-See http://php.net/manual/en/class.intldateformatter.php
+see http://www.php.net/manual/fr/datetime.createfromformat.php
 
 Usage
 =====
@@ -31,11 +30,53 @@ $form->setHydrator($hydrator);
 
 If your entity contains date columns, \DateTime objects will be automatically assigned to a strategy that will extract them to strings.
 
-The strategy automatically formats your \DateTime object with those parameters :
-  * The default locale
-  * The IntlDateFormatter::SHORT/IntlDateFormatter::NONE
-  * The timezone
-  * Gregorian calendar
+In your forms :
+```php
+//Get your date format (you must inject $sl in your form)
+$cdhConfig  = $sm->get('Config');
+$dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
+$dateFormat = $dateConfig['date_format'];
+
+$this->add(
+            array(
+                'name'       => 'mydate',
+                'type'       => 'MpaCustomDoctrineHydrator\Form\Element\HydratedDate',
+                'attributes' => array(
+                    'id'    => 'mydate',
+                ),
+                'options'    => array(
+                    'label'  => 'My date',
+                    'format' => $dateFormat
+                ),
+            )
+        );
+```
+
+You can too apply the filter as standalone
+```php
+public function getInputFilterSpecification()
+{
+        $filters = array(
+            'otherdate' => array(
+                'filters' => array(
+                    array('name' => 'DateToDateTime'),
+                ),
+            ),
+        );
+        return $filters;
+}
+```
+
+/!\ To use the DateToDateTime short name, you must do this. Otherwise, use the FCQN
+```php
+$plugins = $this->sm ->get('FilterManager');
+$chain   = new FilterChain;
+$chain->setPluginManager($plugins);
+$myForm->getFormFactory()->getInputFilterFactory()->setDefaultFilterChain($chain);
+```
+
+This can work with annotation too, just provide @Annotation\Type("MpaCustomDoctrineHydrator\Form\Element\HydratedDate") or apply only the filter by FCQN
+
 
 Installation
 ============
