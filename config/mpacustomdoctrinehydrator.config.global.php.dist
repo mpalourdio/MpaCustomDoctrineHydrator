@@ -18,6 +18,22 @@ return array(
             'fr-CH' => array(
                 'date_format'    => 'd.m.Y',
                 'time_format'    => 'H:i:s',
+            ),
+            'de-CH' => array(
+                'date_format'    => 'd.m.Y',
+                'time_format'    => 'H:i:s',
+            ),
+            'de-DE' => array(
+                'date_format'    => 'd.m.Y',
+                'time_format'    => 'H:i:s',
+            ),
+            'en-US' => array(
+                'date_format'    => 'd.m.Y',
+                'time_format'    => 'H:i:s',
+            ),
+            'en-GB' => array(
+                'date_format'    => 'm/d/Y',
+                'time_format'    => 'H:i:s',
             )
         ),
     ),
