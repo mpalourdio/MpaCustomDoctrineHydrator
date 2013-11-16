@@ -45,10 +45,7 @@ class DateToStringStrategy implements StrategyInterface, ServiceLocatorAwareInte
         /** @var $value DateTime */
         if (!is_null($value)) {
             if (!($value instanceof DateTime)) {
-                throw new \InvalidArgumentException(sprintf(
-                        'Field "%s" is not a valid DateTime object',
-                        $value)
-                );
+                throw new \InvalidArgumentException(sprintf('Field "%s" is not a valid DateTime object', $value));
             }
 
             $cdhConfig  = $this->getServiceLocator()->get('Config');

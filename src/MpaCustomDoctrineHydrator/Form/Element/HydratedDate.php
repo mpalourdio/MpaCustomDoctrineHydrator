@@ -34,4 +34,4 @@ class HydratedDate extends Date implements InputProviderInterface
             'validators' => $this->getValidators(),
         );
     }
-} 
+}
