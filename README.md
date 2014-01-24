@@ -6,6 +6,10 @@ vendor/zendframework/zendframework/library/Zend/View/Helper/Escaper/AbstractHelp
 Message:
 Object provided to Escape helper, but flags do not allow recursion
 
+Requirements
+============
+PHP 5.4+
+
 MpaCustomDoctrineHydrator
 ======================
 
@@ -38,17 +42,17 @@ $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefa
 $dateFormat = $dateConfig['date_format'];
 
 $this->add(
-            array(
+            [
                 'name'       => 'mydate',
                 'type'       => 'MpaCustomDoctrineHydrator\Form\Element\HydratedDate',
-                'attributes' => array(
+                'attributes' => [
                     'id'    => 'mydate',
-                ),
-                'options'    => array(
+                ],
+                'options'    => [
                     'label'  => 'My date',
                     'format' => $dateFormat
-                ),
-            )
+                ],
+            ]
         );
 ```
 
@@ -56,13 +60,13 @@ You can too apply the filter as standalone
 ```php
 public function getInputFilterSpecification()
 {
-        $filters = array(
-            'otherdate' => array(
-                'filters' => array(
-                    array('name' => 'DateToDateTime'),
-                ),
-            ),
-        );
+        $filters = [
+            'otherdate' => [
+                'filters' => [
+                    ['name' => 'DateToDateTime'],
+                ],
+            ],
+        ];
         return $filters;
 }
 ```

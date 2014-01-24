@@ -24,14 +24,14 @@ class HydratedDate extends Date implements InputProviderInterface
      */
     public function getInputSpecification()
     {
-        return array(
+        return [
             'name'       => $this->getName(),
             'required'   => true,
-            'filters'    => array(
-                array('name' => 'Zend\Filter\StringTrim'),
-                array('name' => 'DateToDateTime'),
-            ),
+            'filters'    => [
+                ['name' => 'Zend\Filter\StringTrim'],
+                ['name' => 'DateToDateTime'],
+            ],
             'validators' => $this->getValidators(),
-        );
+        ];
     }
 }

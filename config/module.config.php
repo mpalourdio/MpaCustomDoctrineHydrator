@@ -8,19 +8,19 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-return array(
-    'service_manager' => array(
-        'factories'  => array(
+return [
+    'service_manager' => [
+        'factories'  => [
             'customdoctrinehydrator' => 'MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory',
-        ),
-        'invokables' => array(
+        ],
+        'invokables' => [
             'datetostringstrategy'     => 'MpaCustomDoctrineHydrator\Invokables\DateToStringStrategy',
             'datetimetostringstrategy' => 'MpaCustomDoctrineHydrator\Invokables\DatetimeToStringStrategy',
-        )
-    ),
-    'filters'         => array(
-        'invokables' => array(
+        ],
+    ],
+    'filters'         => [
+        'invokables' => [
             'DateToDateTime' => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime'
-        )
-    )
-);
+        ],
+    ],
+];
