@@ -84,10 +84,6 @@ This can work with annotation too, just provide @Annotation\Type("MpaCustomDoctr
 
 Installation
 ============
-Add **at the top** of your composer.json  
-"minimum-stability": "dev",  
-"prefer-stable": true
-
 Add to the **require** list  
 "mpalourdio/mpa-custom-doctrine-hydrator": "dev-master"
 
