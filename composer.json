@@ -18,9 +18,8 @@
     ],
     "require": {
         "php": ">=5.4",
-        "doctrine/doctrine-orm-module": "0.8.*@dev"
+        "doctrine/doctrine-orm-module": "0.*"
     },
-    "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
             "MpaCustomDoctrineHydrator\\": "src/"
