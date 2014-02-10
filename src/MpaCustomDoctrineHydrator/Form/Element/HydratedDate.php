@@ -10,11 +10,48 @@
 
 namespace MpaCustomDoctrineHydrator\Form\Element;
 
+use Locale;
 use Zend\Form\Element\Date;
 use Zend\InputFilter\InputProviderInterface;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class HydratedDate extends Date implements InputProviderInterface
+class HydratedDate extends Date implements InputProviderInterface, ServiceLocatorAwareInterface
 {
+    protected $sm;
+    protected $attributes;
+
+    /**
+     * Set service locator
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+        $this->sm = $serviceLocator->getServiceLocator();
+    }
+
+    /**
+     * Get service locator
+     *
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->sm;
+    }
+
+    public function getAttributes()
+    {
+        $cdhConfig  = $this->sm->get('Config');
+        $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
+
+        $this->attributes                = parent::getAttributes();
+        $this->attributes['placeholder'] = $dateConfig['date_placeholder'];
+
+        return $this->attributes;
+    }
+
     /**
      * Provide default input rules for this element
      *

@@ -1,19 +1,12 @@
-WTF
-===
-File:
-vendor/zendframework/zendframework/library/Zend/View/Helper/Escaper/AbstractHelper.php
+MpaCustomDoctrineHydrator
+======================
 
-Message:
-Object provided to Escape helper, but flags do not allow recursion
+Helps you deal with Doctrine Module Hydrator and date / datetime columns regardings Locale etc.
 
 Requirements
 ============
 PHP 5.4+
 
-MpaCustomDoctrineHydrator
-======================
-
-Simple factory that helps you deal with Doctrine Module Hydrator and date / datetime columns
 
 Configuration
 =====
@@ -69,6 +62,11 @@ public function getInputFilterSpecification()
         ];
         return $filters;
 }
+```
+
+/!\ If you don't create your fieldsets/forms via the FormElementManager, you must manually inject $sl so the HydratedDate car fetch the configuration
+```php
+$this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```
 
 /!\ To use the DateToDateTime short name, you must do this. Otherwise, use the FCQN
