@@ -67,8 +67,8 @@ class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceL
 
         if ($errors['warning_count'] > 0 || $date === false) {
             return $value;
-        } else {
-            return $date;
         }
+
+        return $date;
     }
 }
