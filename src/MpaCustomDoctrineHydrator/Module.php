@@ -10,24 +10,10 @@
 
 namespace MpaCustomDoctrineHydrator;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
-class Module implements AutoloaderProviderInterface
+class Module
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function getAutoloaderConfig()
-    {
-        return [
-            'Zend\Loader\StandardAutoloader' => [
-                'namespaces' => [
-                    __NAMESPACE__ => __DIR__ . '/../../src/' . __NAMESPACE__,
-                ],
-            ],
-        ];
-    }
-
     /**
      * {@inheritDoc}
      */

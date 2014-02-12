@@ -5,7 +5,7 @@ Helps you deal with Doctrine Module Hydrator and date / datetime columns regardi
 
 Requirements
 ============
-PHP 5.4+
+PHP 5.4+ - Only Composer installation supported
 
 
 Configuration
@@ -64,7 +64,7 @@ public function getInputFilterSpecification()
 }
 ```
 
-/!\ If you don't create your fieldsets/forms via the FormElementManager, you must manually inject $sl so the HydratedDate car fetch the configuration
+/!\ If you don't create your fieldsets/forms via the FormElementManager, you must manually inject $sl so the HydratedDate can fetch the configuration
 ```php
 $this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```
