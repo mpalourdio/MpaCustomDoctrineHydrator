@@ -1,5 +1,7 @@
+[![Build Status](https://travis-ci.org/mpalourdio/MpaCustomDoctrineHydrator.png?branch=master)](https://travis-ci.org/mpalourdio/MpaCustomDoctrineHydrator)
+
 MpaCustomDoctrineHydrator
-======================
+=========================
 
 Helps you deal with Doctrine Module Hydrator and date / datetime columns regardings Locale etc.
 
@@ -9,7 +11,7 @@ PHP 5.4+ - Only Composer installation supported
 
 
 Configuration
-=====
+=============
 Copy **mpacustomdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
 extension.
 
