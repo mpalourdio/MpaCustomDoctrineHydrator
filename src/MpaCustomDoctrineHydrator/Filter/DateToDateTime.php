@@ -45,7 +45,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceL
      * Converts a date string to a \DateTime
      * according to the date format given
      *
-     * @param $value date received
+     * @param $value : date received
      * @return \DateTime
      */
     public function filter($value)
