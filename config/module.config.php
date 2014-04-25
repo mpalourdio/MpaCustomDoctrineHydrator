@@ -11,7 +11,7 @@
 return [
     'service_manager' => [
         'invokables' => [
-            'customdoctrinehydrator' => 'Application\Invokables\CustomHydrator',
+            'customdoctrinehydrator' => 'MpaCustomDoctrineHydrator\Invokables\CustomHydrator',
         ],
     ],
     'filters'         => [
