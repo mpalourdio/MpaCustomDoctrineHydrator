@@ -12,7 +12,6 @@ class DateToDateTimeTest extends \PHPUnit_Framework_TestCase
     {
         \Locale::setDefault('fr-CH');
         $this->serviceManager = ServiceManagerFactory::getServiceManager();
-        $this->serviceManager->setAllowOverride(true);
     }
 
     public function testStringWellFormattedDateReturnsADateTimeObeject()

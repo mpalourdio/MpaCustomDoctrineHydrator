@@ -28,5 +28,31 @@ return [
                 'datetime_placeholder' => 'jj.mm.aaaa hh:mm:ss',
             ],
         ]
-    ]
+    ],
+    'doctrine' => [
+        'driver' => [
+            'MpaCustomDoctrineHydratorTest\Assets\Entity' => [
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => [
+                    __DIR__ . '/MpaCustomDoctrineHydratorTest/Assets/Entity'
+                ],
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    'MpaCustomDoctrineHydratorTest\Assets\Entity' => 'MpaCustomDoctrineHydratorTest\Assets\Entity',
+                ],
+            ],
+        ],
+        'connection' => [
+            'orm_default' => [
+                'configuration' => 'orm_default',
+                'eventmanager'  => 'orm_default',
+                'driverClass'   => 'Doctrine\DBAL\Driver\PDOSqlite\Driver',
+                'params' => [
+                    'memory' => true,
+                ],
+            ],
+        ],
+    ],
 ];
