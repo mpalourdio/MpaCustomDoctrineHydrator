@@ -8,50 +8,29 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydrator\Invokables;
+namespace MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy;
 
 use DateTime;
-use Locale;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
-class DateToStringStrategy implements StrategyInterface, ServiceLocatorAwareInterface
+class DateToStringStrategy implements StrategyInterface
 {
-    protected $sm;
+    protected $dateConfig;
 
-    /**
-     * Set service locator
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     */
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    public function __construct(array $dateConfig)
     {
-        $this->sm = $serviceLocator;
-    }
-
-    /**
-     * Get service locator
-     *
-     * @return ServiceLocatorInterface
-     */
-    public function getServiceLocator()
-    {
-        return $this->sm;
+        $this->dateConfig = $dateConfig;
     }
 
     public function extract($value)
     {
         /** @var $value DateTime */
-        if (!is_null($value)) {
+        if (null !== $value) {
             if (!($value instanceof DateTime)) {
                 throw new \InvalidArgumentException(sprintf('Field "%s" is not a valid DateTime object', $value));
             }
 
-            $cdhConfig  = $this->getServiceLocator()->get('Config');
-            $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
-
-            return $value->format($dateConfig['date_format']);
+            return $value->format($this->dateConfig['date_format']);
         } else {
             return $value;
         }

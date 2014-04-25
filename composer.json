@@ -1,26 +1,33 @@
 {
-    "name": "mpalourdio/mpa-custom-doctrine-hydrator",
+    "name":        "mpalourdio/mpa-custom-doctrine-hydrator",
     "description": "Simple Doctrine ORM Factory module that handles DateTime hydration",
-    "license": "MIT",
-    "keywords": [
+    "license":     "MIT",
+    "keywords":    [
         "doctrine",
         "orm",
         "module",
         "zf2"
     ],
-    "homepage": "https://github.com/mpalourdio/MpaCustomDoctrineHydrator",
-    "authors": [
+    "homepage":    "https://github.com/mpalourdio/MpaCustomDoctrineHydrator",
+    "authors":     [
         {
-            "name": "@mpalourdio",
-            "email": "mpalourdio@gmail.com",
+            "name":     "@mpalourdio",
+            "email":    "mpalourdio@gmail.com",
             "homepage": "https://github.com/mpalourdio"
         }
     ],
-    "require": {
-        "php": ">=5.4",
-        "doctrine/doctrine-orm-module": "0.*"
+    "require":     {
+        "php":                              ">=5.4",
+        "doctrine/doctrine-orm-module":     "0.*",
+        "zendframework/zend-form":          ">=2.2",
+        "zendframework/zend-modulemanager": ">=2.2"
     },
-    "autoload": {
+    "require-dev": {
+        "zendframework/zendframework": "2.*",
+        "phpunit/phpunit":             "~3.7",
+        "squizlabs/php_codesniffer":   "1.5.*"
+    },
+    "autoload":    {
         "psr-0": {
             "MpaCustomDoctrineHydrator\\": "src/"
         }

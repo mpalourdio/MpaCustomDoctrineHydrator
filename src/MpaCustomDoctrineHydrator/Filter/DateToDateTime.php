@@ -19,7 +19,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceLocatorAwareInterface
 {
-    protected $sm;
+    protected $serviceLocator;
 
     /**
      * Set service locator
@@ -28,7 +28,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceL
      */
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
-        $this->sm = $serviceLocator->getServiceLocator();
+        $this->serviceLocator = $serviceLocator->getServiceLocator();
     }
 
     /**
@@ -38,12 +38,13 @@ class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceL
      */
     public function getServiceLocator()
     {
-        return $this->sm;
+        return $this->serviceLocator;
     }
 
     /**
      * Converts a date string to a \DateTime
      * according to the date format given
+     *
      * @param $value date received
      * @return \DateTime
      */

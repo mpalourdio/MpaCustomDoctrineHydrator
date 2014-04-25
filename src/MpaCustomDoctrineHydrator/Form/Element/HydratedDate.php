@@ -18,17 +18,20 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class HydratedDate extends Date implements InputProviderInterface, ServiceLocatorAwareInterface
 {
-    protected $sm;
+    protected $parentLocator;
     protected $attributes;
 
     /**
      * Set service locator
      *
      * @param ServiceLocatorInterface $serviceLocator
+     * @return self
      */
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
-        $this->sm = $serviceLocator->getServiceLocator();
+        $this->parentLocator = $serviceLocator->getServiceLocator();
+
+        return $this;
     }
 
     /**
@@ -38,15 +41,14 @@ class HydratedDate extends Date implements InputProviderInterface, ServiceLocato
      */
     public function getServiceLocator()
     {
-        return $this->sm;
+        return $this->parentLocator;
     }
 
     public function getAttributes()
     {
-        $cdhConfig  = $this->sm->get('Config');
+        $cdhConfig  = $this->parentLocator->get('Config');
         $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
 
-        $this->attributes                = parent::getAttributes();
         $this->attributes['placeholder'] = $dateConfig['date_placeholder'];
 
         return $this->attributes;
@@ -56,6 +58,9 @@ class HydratedDate extends Date implements InputProviderInterface, ServiceLocato
      * Provide default input rules for this element
      *
      * Attaches default validators for the datetime input.
+     *
+     * This method is only grabbed when building form by a class
+     * For annotations builds, it's not used
      *
      * @return array
      */
