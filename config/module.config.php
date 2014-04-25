@@ -10,12 +10,8 @@
 
 return [
     'service_manager' => [
-        'factories'  => [
-            'customdoctrinehydrator' => 'MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory',
-        ],
         'invokables' => [
-            'datetostringstrategy'     => 'MpaCustomDoctrineHydrator\Invokables\DateToStringStrategy',
-            'datetimetostringstrategy' => 'MpaCustomDoctrineHydrator\Invokables\DatetimeToStringStrategy',
+            'customdoctrinehydrator' => 'Application\Invokables\CustomHydrator',
         ],
     ],
     'filters'         => [
