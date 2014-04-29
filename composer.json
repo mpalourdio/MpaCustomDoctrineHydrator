@@ -17,7 +17,7 @@
         }
     ],
     "require":     {
-        "php":                              ">=5.5",
+        "php":                              ">=5.5.0",
         "doctrine/doctrine-orm-module":     "0.*",
         "zendframework/zend-form":          ">=2.2",
         "zendframework/zend-modulemanager": ">=2.2"
