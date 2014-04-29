@@ -12,6 +12,8 @@ namespace MpaCustomDoctrineHydratorTest\Form\Element;
 
 use MpaCustomDoctrineHydrator\Form\Element\HydratedDate;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use Zend\Filter\StringTrim;
+use Zend\Validator\Date;
 
 class HydratedDateTest extends \PHPUnit_Framework_TestCase
 {
@@ -53,7 +55,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
         $this->assertArrayHasKey('filters', $inputSpec, 'testElementHasItsOwnFilters_1()');
         $this->assertEquals(
-            'Zend\Filter\StringTrim',
+            StringTrim::class,
             $inputSpec['filters'][0]['name'],
             'testElementHasItsOwnFilters_2()'
         );
@@ -70,7 +72,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
         $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators_1()');
         $this->assertInstanceOf(
-            'Zend\Validator\Date',
+            Date::class,
             $inputSpec['validators'][0],
             'testElementHasItsParentValidators_2()'
         );

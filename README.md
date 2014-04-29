@@ -10,7 +10,7 @@ Helps you deal with Doctrine Module Hydrator and date / datetime columns regardi
 
 Requirements
 ============
-PHP 5.4+ - Only Composer installation supported
+PHP 5.5+ - Only Composer installation supported
 
 
 Configuration

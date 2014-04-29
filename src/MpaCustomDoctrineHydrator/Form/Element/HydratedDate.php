@@ -11,6 +11,7 @@
 namespace MpaCustomDoctrineHydrator\Form\Element;
 
 use Locale;
+use Zend\Filter\StringTrim;
 use Zend\Form\Element\Date;
 use Zend\InputFilter\InputProviderInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
@@ -70,7 +71,7 @@ class HydratedDate extends Date implements InputProviderInterface, ServiceLocato
             'name'       => $this->getName(),
             'required'   => true,
             'filters'    => [
-                ['name' => 'Zend\Filter\StringTrim'],
+                ['name' => StringTrim::class],
                 ['name' => 'DateToDateTime'],
             ],
             'validators' => $this->getValidators(),

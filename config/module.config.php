@@ -8,15 +8,18 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+use MpaCustomDoctrineHydrator\Filter\DateToDateTime;
+use MpaCustomDoctrineHydrator\Invokables\CustomHydrator;
+
 return [
     'service_manager' => [
         'invokables' => [
-            'customdoctrinehydrator' => 'MpaCustomDoctrineHydrator\Invokables\CustomHydrator',
+            'customdoctrinehydrator' => CustomHydrator::class,
         ],
     ],
     'filters'         => [
         'invokables' => [
-            'DateToDateTime' => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime'
+            'DateToDateTime' => DateToDateTime::class,
         ],
     ],
 ];
