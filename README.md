@@ -88,6 +88,6 @@ This can work with annotation too, just provide @Annotation\Type("MpaCustomDoctr
 Installation
 ============
 Add to the **require** list  
-"mpalourdio/mpa-custom-doctrine-hydrator": "dev-master"
+"mpalourdio/mpa-custom-doctrine-hydrator": "0.*"
 
 Add "MpaCustomDoctrineHydrator" to your **modules list** in **application.config.php**
