@@ -6,7 +6,7 @@
 MpaCustomDoctrineHydrator
 =========================
 
-Helps you deal with Doctrine Module Hydrator and date / datetime columns regardings Locale etc.
+Helps you deal with Doctrine Module Hydrator and date / datetime columns regarding Locale etc.
 
 Requirements
 ============
@@ -74,7 +74,7 @@ public function getInputFilterSpecification()
 $this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```
 
-/!\ To use the DateToDateTime short name, you must do this. Otherwise, use the FCQN
+/!\ To use the DateToDateTime short name, you must do this. Otherwise, use the FQCN
 ```php
 $plugins = $this->sm ->get('FilterManager');
 $chain   = new FilterChain;
