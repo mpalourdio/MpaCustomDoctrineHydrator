@@ -23,21 +23,29 @@ class DateToDateTimeTest extends \PHPUnit_Framework_TestCase
         $this->serviceManager = ServiceManagerFactory::getServiceManager();
     }
 
-    public function testStringWellFormattedDateReturnsADateTimeObeject()
+    public function testStringWellFormattedDateReturnsADateTimeObject()
     {
-        $filterManager = $this->serviceManager->get('FilterManager');
-        $filter        = new DateToDateTime();
-        $filter->setServiceLocator($filterManager);
+        $serviceConfig = $this->serviceManager
+            ->get('Config')['mpacustomdoctrinehydrator']['formats'][\Locale::getDefault()];
+        $filter        = new DateToDateTime($serviceConfig);
 
         $this->assertEquals('DateTime', get_class($filter('10.12.2012')));
     }
 
     public function testStringWronglyFormattedDateReturnsTheSameValue()
     {
-        $filterManager = $this->serviceManager->get('FilterManager');
-        $filter        = new DateToDateTime();
-        $filter->setServiceLocator($filterManager);
+        $serviceConfig = $this->serviceManager
+            ->get('Config')['mpacustomdoctrinehydrator']['formats'][\Locale::getDefault()];
+        $filter        = new DateToDateTime($serviceConfig);
 
         $this->assertEquals('100.102.20102', $filter('100.102.20102'));
+    }
+
+    public function testCanManuallySetformat()
+    {
+        $filter        = new DateToDateTime();
+        $filter->setFormat('d/m/Y');
+
+        $this->assertEquals('DateTime', get_class($filter('10/12/2012')));
     }
 }
