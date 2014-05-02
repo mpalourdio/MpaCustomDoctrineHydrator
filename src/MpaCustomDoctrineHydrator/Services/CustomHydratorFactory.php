@@ -20,7 +20,7 @@ class CustomHydratorFactory implements FactoryInterface
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @return CustomHydrator
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

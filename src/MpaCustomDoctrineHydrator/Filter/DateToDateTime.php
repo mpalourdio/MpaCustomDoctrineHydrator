@@ -11,7 +11,6 @@
 namespace MpaCustomDoctrineHydrator\Filter;
 
 use DateTime;
-use Traversable;
 use Zend\Filter\AbstractFilter;
 use Zend\Filter\FilterInterface;
 
@@ -20,7 +19,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
     protected $format = 'Y.m.d';
 
     /**
-     * @param  array|Traversable $options
+     * @param  array|null $options
      * @return self
      */
     public function __construct($options = null)
@@ -42,9 +41,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
     }
 
     /**
-     * Set options
-     *
-     * @param  array $options
+     * @param array $options
      * @return self
      */
     public function setOptions($options)
@@ -58,8 +55,8 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      * Converts a date string to a \DateTime
      * according to the date format given
      *
-     * @param $value : date received
-     * @return \DateTime
+     * @param \DateTime|string $value
+     * @return \DateTime|string
      */
     public function filter($value)
     {

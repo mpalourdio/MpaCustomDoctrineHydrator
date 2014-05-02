@@ -17,11 +17,19 @@ class DateToStringStrategy implements StrategyInterface
 {
     protected $dateConfig;
 
+    /**
+     * @param array $dateConfig
+     */
     public function __construct(array $dateConfig)
     {
         $this->dateConfig = $dateConfig;
     }
 
+    /**
+     * @param string $value
+     * @return DateTime|null
+     * @throws \InvalidArgumentException
+     */
     public function extract($value)
     {
         /** @var $value DateTime */
@@ -36,6 +44,10 @@ class DateToStringStrategy implements StrategyInterface
         }
     }
 
+    /**
+     * @param string $value
+     * @return string
+     */
     public function hydrate($value)
     {
         return $value;

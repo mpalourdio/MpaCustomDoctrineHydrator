@@ -23,7 +23,6 @@ class CustomHydrator
      * @param EntityManagerInterface $entityManager
      * @param array $dateConfig
      */
-
     public function __construct(EntityManagerInterface $entityManager, array $dateConfig)
     {
         $this->entityManager = $entityManager;
