@@ -53,4 +53,10 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
         $today    = 'chewbacca';
         $strategy->extract($today);
     }
+
+    public function testCanHydrate()
+    {
+        $strategy = new DateToStringStrategy($this->dateConfig);
+        $this->assertEquals('test', $strategy->hydrate('test'));
+    }
 }
