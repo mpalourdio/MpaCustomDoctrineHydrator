@@ -11,34 +11,47 @@
 namespace MpaCustomDoctrineHydrator\Filter;
 
 use DateTime;
-use Locale;
+use Traversable;
 use Zend\Filter\AbstractFilter;
 use Zend\Filter\FilterInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
-class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceLocatorAwareInterface
+class DateToDateTime extends AbstractFilter implements FilterInterface
 {
-    protected $serviceLocator;
+    protected $format = 'Y.m.d';
 
     /**
-     * Set service locator
-     *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  array|Traversable $options
+     * @return self
      */
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    public function __construct($options = null)
     {
-        $this->serviceLocator = $serviceLocator->getServiceLocator();
+        if (self::isOptions($options)) {
+            $this->setOptions($options);
+        }
     }
 
     /**
-     * Get service locator
-     *
-     * @return ServiceLocatorInterface
+     * @param string $format
+     * @return self
      */
-    public function getServiceLocator()
+    public function setFormat($format)
     {
-        return $this->serviceLocator;
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * Set options
+     *
+     * @param  array $options
+     * @return self
+     */
+    public function setOptions($options)
+    {
+        $this->format = $options['date_format'];
+
+        return $this;
     }
 
     /**
@@ -55,12 +68,10 @@ class DateToDateTime extends AbstractFilter implements FilterInterface, ServiceL
          * If the creation fails, we return the string itself
          * so it's treated by Validate\Date
          */
-        $cdhConfig  = $this->getServiceLocator()->get('Config');
-        $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
 
         $date = (is_int($value))
             ? date_create("@$value") // from timestamp
-            : DateTime::createFromFormat($dateConfig['date_format'], $value);
+            : DateTime::createFromFormat($this->format, $value);
 
         // Invalid dates can show up as warnings (ie. "2007-02-99")
         // and still return a DateTime object
