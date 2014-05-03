@@ -6,7 +6,7 @@
 MpaCustomDoctrineHydrator
 =========================
 
-Helps you deal with Doctrine Module Hydrator and date / datetime columns regarding Locale etc.
+Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.
 
 Requirements
 ============
@@ -54,14 +54,19 @@ $this->add(
         );
 ```
 
-You can too apply the filter as standalone
+You can too apply the filter as standalone on other form elements
 ```php
 public function getInputFilterSpecification()
 {
         $filters = [
             'otherdate' => [
                 'filters' => [
-                    ['name' => 'DateToDateTime'],
+                    [
+                        'name' => 'DateToDateTime',
+                        'options' => [
+                            'format' => 'd/m/Y'
+                        ]
+                    ],
                 ],
             ],
         ];

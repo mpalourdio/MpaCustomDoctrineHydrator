@@ -1,6 +1,6 @@
 {
     "name":        "mpalourdio/mpa-custom-doctrine-hydrator",
-    "description": "Simple Doctrine ORM Factory module that handles DateTime hydration",
+    "description": "Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.",
     "license":     "MIT",
     "keywords":    [
         "doctrine",
