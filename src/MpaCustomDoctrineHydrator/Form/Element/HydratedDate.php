@@ -10,58 +10,41 @@
 
 namespace MpaCustomDoctrineHydrator\Form\Element;
 
-use Locale;
 use Zend\Filter\StringTrim;
 use Zend\Form\Element\Date;
 use Zend\InputFilter\InputProviderInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
-class HydratedDate extends Date implements InputProviderInterface, ServiceLocatorAwareInterface
+class HydratedDate extends Date implements InputProviderInterface
 {
     protected $parentLocator;
-    protected $attributes;
 
     /**
-     * Set service locator
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return self
+     * Override the type="date" because we can't
+     * set a placeholder on html5 date input
      */
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    protected $attributes = ['type' => 'text'];
+
+    /**
+     * Accepted options for DateTime:
+     * - format: A \DateTime compatible string
+     *
+     * @param array|\Traversable $options
+     * @return \DateTime
+     */
+    public function setOptions($options)
     {
-        $this->parentLocator = $serviceLocator->getServiceLocator();
+        parent::setOptions($options);
+
+        if (isset($this->options['date_format'])) {
+            $this->setFormat($this->options['date_format']);
+        }
 
         return $this;
     }
 
     /**
-     * Get service locator
-     *
-     * @return ServiceLocatorInterface
-     */
-    public function getServiceLocator()
-    {
-        return $this->parentLocator;
-    }
-
-    public function getAttributes()
-    {
-        $cdhConfig  = $this->parentLocator->get('Config');
-        $dateConfig = $cdhConfig['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
-
-        $this->attributes['placeholder'] = $dateConfig['date_placeholder'];
-
-        return $this->attributes;
-    }
-
-    /**
      * Provide default input rules for this element
-     *
-     * Attaches default validators for the datetime input.
-     *
-     * This method is only grabbed when building form by a class
-     * For annotations builds, it's not used
+     * Attaches default validators for the HydratedDate input.
      *
      * @return array
      */
@@ -72,7 +55,12 @@ class HydratedDate extends Date implements InputProviderInterface, ServiceLocato
             'required'   => true,
             'filters'    => [
                 ['name' => StringTrim::class],
-                ['name' => 'DateToDateTime'],
+                [
+                    'name'    => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
+                    'options' => [
+                        'date_format' => $this->getFormat(),
+                    ]
+                ],
             ],
             'validators' => $this->getValidators(),
         ];

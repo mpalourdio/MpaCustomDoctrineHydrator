@@ -41,12 +41,23 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
     }
 
     /**
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    /**
+     * Allow the format key to bey format and date_format
+     * For consistency with the ZF2 Date Element
+     *
      * @param array $options
      * @return self
      */
     public function setOptions($options)
     {
-        $this->format = $options['date_format'];
+        $this->format = isset($options['date_format']) ? $options['date_format'] : $options['format'];
 
         return $this;
     }

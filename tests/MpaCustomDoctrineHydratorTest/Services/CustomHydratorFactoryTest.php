@@ -8,13 +8,13 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydratorTest\Invokables;
+namespace MpaCustomDoctrineHydratorTest\Services;
 
-use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
-use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
+use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
+use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
-class CustomHydratorTest extends \PHPUnit_Framework_TestCase
+class CustomHydratorFactoryTest extends \PHPUnit_Framework_TestCase
 {
     protected $serviceManager;
 

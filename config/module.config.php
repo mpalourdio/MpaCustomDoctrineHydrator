@@ -9,6 +9,7 @@
  */
 
 use MpaCustomDoctrineHydrator\Filter\DateToDateTimeFactory;
+use MpaCustomDoctrineHydrator\Form\Element\HydratedDateFactory;
 use MpaCustomDoctrineHydrator\Services\CustomHydratorFactory;
 
 return [
@@ -20,6 +21,12 @@ return [
     'filters'         => [
         'factories' => [
             'DateToDateTime' => DateToDateTimeFactory::class,
+        ],
+    ],
+    'form_elements'   => [
+        'factories' => [
+            'Zend\Form\Element\Date' => HydratedDateFactory::class,
+            'Date'                   => HydratedDateFactory::class,
         ],
     ],
 ];

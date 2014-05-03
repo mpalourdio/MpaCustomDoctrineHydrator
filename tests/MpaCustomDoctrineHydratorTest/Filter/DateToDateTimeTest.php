@@ -48,4 +48,15 @@ class DateToDateTimeTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('DateTime', get_class($filter('10/12/2012')));
     }
+
+    public function testFormatAndDateFormatAreValidConfigKeysForFilterOptions()
+    {
+        $filter        = new DateToDateTime();
+
+        $filter->setOptions(['date_format' => 'date_format']);
+        $this->assertEquals($filter->getFormat(), 'date_format');
+
+        $filter->setOptions(['format' => 'format']);
+        $this->assertEquals($filter->getFormat(), 'format');
+    }
 }

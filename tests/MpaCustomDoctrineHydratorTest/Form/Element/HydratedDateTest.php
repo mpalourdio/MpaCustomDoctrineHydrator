@@ -28,18 +28,15 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testWeCanGrabAttributesFromElement()
     {
-        $element            = new HydratedDate();
-        $formElementManager = $this->serviceManager->get('FormElementManager');
-        $element->setServiceLocator($formElementManager);
+        $element = new HydratedDate();
+        $element->setAttribute('placeholder', 'ddmmyyyy');
 
         $this->assertInternalType('array', $element->getAttributes());
     }
 
     public function testElementHasInputSpecification()
     {
-        $element            = new HydratedDate();
-        $formElementManager = $this->serviceManager->get('FormElementManager');
-        $element->setServiceLocator($formElementManager);
+        $element = new HydratedDate();
         $element->setName('hydrated');
 
         $this->assertInternalType('array', $element->getInputSpecification());
@@ -47,39 +44,56 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testElementHasItsOwnFilters()
     {
-        $element            = new HydratedDate();
-        $formElementManager = $this->serviceManager->get('FormElementManager');
-        $element->setServiceLocator($formElementManager);
+        $element = new HydratedDate();
         $element->setName('hydrated');
         $inputSpec = $element->getInputSpecification();
 
-        $this->assertArrayHasKey('filters', $inputSpec, 'testElementHasItsOwnFilters_1()');
+        $this->assertArrayHasKey('filters', $inputSpec, 'testElementHasItsOwnFilters1()');
         $this->assertEquals(
             StringTrim::class,
             $inputSpec['filters'][0]['name'],
-            'testElementHasItsOwnFilters_2()'
+            'testElementHasItsOwnFilters2()'
         );
-        $this->assertEquals('DateToDateTime', $inputSpec['filters'][1]['name'], 'testElementHasItsOwnFilters_3()');
+        $this->assertEquals(
+            'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
+            $inputSpec['filters'][1]['name'],
+            'testElementHasItsOwnFilters3()'
+        );
     }
 
     public function testElementHasItsParentValidators()
     {
-        $element            = new HydratedDate();
-        $formElementManager = $this->serviceManager->get('FormElementManager');
-        $element->setServiceLocator($formElementManager);
+        $element = new HydratedDate();
         $element->setName('hydrated');
         $inputSpec = $element->getInputSpecification();
 
-        $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators_1()');
+        $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators1()');
         $this->assertInstanceOf(
             Date::class,
             $inputSpec['validators'][0],
-            'testElementHasItsParentValidators_2()'
+            'testElementHasItsParentValidators2()'
         );
         $this->assertInstanceOf(
             'Zend\Validator\DateStep',
             $inputSpec['validators'][1],
-            'testElementHasItsParentValidators_3()'
+            'testElementHasItsParentValidators3()'
         );
+    }
+
+    public function testCanSetOptionsForFormat()
+    {
+        $format  = 'd.m.Y';
+        $element = new HydratedDate();
+        $element->setName('hydrated');
+        $element->setOptions(['date_format' => $format]);
+
+        $this->assertEquals($format, $element->getOption('date_format'));
+    }
+
+    public function testExtendsDateButIsAnInputText()
+    {
+        $element = new HydratedDate();
+
+        $this->assertEquals('text', $element->getAttribute('type'));
     }
 }
