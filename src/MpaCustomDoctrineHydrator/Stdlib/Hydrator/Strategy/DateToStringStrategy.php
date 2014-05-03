@@ -26,8 +26,8 @@ class DateToStringStrategy implements StrategyInterface
     }
 
     /**
-     * @param string $value
-     * @return DateTime|null
+     * @param DateTime|null $value
+     * @return string|null
      * @throws \InvalidArgumentException
      */
     public function extract($value)

@@ -24,7 +24,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      */
     public function __construct($options = null)
     {
-        if (self::isOptions($options)) {
+        if (null !== $options && self::isOptions($options)) {
             $this->setOptions($options);
         }
     }
@@ -55,7 +55,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      * Converts a date string to a \DateTime
      * according to the date format given
      *
-     * @param \DateTime|string $value
+     * @param string $value
      * @return \DateTime|string
      */
     public function filter($value)
