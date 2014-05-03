@@ -9,8 +9,8 @@ MpaCustomDoctrineHydrator
 Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.
 Extends and replace the ZF2 Date Element to be compliant with doctrine hydration.
 
-The filter and the element can be used as standalone. Using the provided element via the Form Element Manager adds automatic conversion formats for date strings to \DateTime.
-Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too.
+The filter and the element can be used as standalone. Using the provided element via the FormElementManager adds automatic conversion formats for date strings to \DateTime.
+Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too when rendered.
 
 The hydrator service adds a strategy to all date columns of your entity for extraction and hydration.
 
@@ -55,7 +55,7 @@ $hydrator = $this->sm->get('customdoctrinehydrator')->setEntity('Application\Ent
 $form->setHydrator($hydrator);
 ```
 
-You're done! Date colums will be hydrated/extracted, filtered, validated automatically, without providing anything else in your entities.
+You're done! Date colums will be hydrated/extracted, filtered and validated automatically, without providing anything else in your entities.
 Your form elements will have a placeholder.
 
 
@@ -66,7 +66,7 @@ Usage (the hard and decoupled way)
 $hydrator = $this->sm->get('customdoctrinehydrator')->setEntity('Application\Entity\Myentity');
 $form->setHydrator($hydrator);
 ```
-In your forms class, when not using the Form Element Manager :
+In your forms classes, when not using the FormElementManager :
 ```php
 
 $this->add(
@@ -101,7 +101,7 @@ $this->add(
         );
 ```
 
-You can too use the filter as standalone on other form elements with custom formats if needed. For this, use the filter FQCN.
+You can use too the filter as standalone on other form elements with custom formats if needed. For this, use the filter FQCN.
 
 If you use the filter shortname (```php DateToDateTime ```), the config will be pulled form the service config (ie. The options array will be ignored).
 
@@ -134,7 +134,7 @@ public function getInputFilterSpecification()
                 'filters' => [
                     [
                         'name' => 'DateToDateTime',
-                    ], // no options needed here
+                    ], // no options needed here, would be ignored anyway
                 ],
             ],
         ];
@@ -147,7 +147,7 @@ public function getInputFilterSpecification()
 $this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```
 
-/!\ Tip : To use the DateToDateTime filter short name in a form without the FEM , you must the following :
+/!\ Tip : To use the 'DateToDateTime' filter short name in a form grabbed without the FEM , you must do the following :
 ```php
 $plugins = $this->sm ->get('FilterManager');
 $chain   = new FilterChain;
