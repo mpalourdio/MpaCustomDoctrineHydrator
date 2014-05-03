@@ -155,7 +155,7 @@ $chain->setPluginManager($plugins);
 $myForm->getFormFactory()->getInputFilterFactory()->setDefaultFilterChain($chain);
 ```
 
-You can use the provided strategy as standlone with your hydrators too.
+You can use the provided strategy as standalone with your hydrators too.
 
 TODO
 ====
