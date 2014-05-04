@@ -7,12 +7,12 @@ MpaCustomDoctrineHydrator
 =========================
 
 Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.
-Extends and replace the ZF2 Date Element to be compliant with doctrine hydration.
+Extends and replace the ZF2 Date Element to make it compliant 'out-of-the-box' with doctrine hydration.
 
 The filter and the element can be used as standalone. Using the provided element via the FormElementManager adds automatic conversion formats for date strings to \DateTime.
 Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too when rendered.
 
-The hydrator service adds a strategy to all date columns of your entity for extraction and hydration.
+The hydrator service adds a strategy to every date columns of your entity for extraction and hydration.
 
 Requirements
 ============
@@ -32,7 +32,7 @@ Configuration
 Copy **mpacustomdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
 extension.
 
-Add your own date formats (if needed) that are compliants with php \DateTime
+Add your own date formats (if needed) that are compliant with php \DateTime
 
 see http://www.php.net/manual/fr/datetime.createfromformat.php
 
@@ -56,7 +56,7 @@ $form->setHydrator($hydrator);
 ```
 
 You're done! Date colums will be hydrated/extracted, filtered and validated automatically, without providing anything else in your entities.
-Your form elements will have a placeholder.
+Your form elements will be rendered with a placeholder.
 
 
 Usage (the hard and decoupled way)
@@ -84,7 +84,7 @@ $this->add(
         );
 ```
 
-If you pull your forms from the FEM, just grab the element as a 'Date'. The format here is not needed, config will be pulled from service config.
+If you pull your forms from the FEM, just grab the element as a 'Date' or 'Zend\Form\Element\Date'. The format option is not needed here, config will be pulled from service config.
 
 ```php
 $this->add(
@@ -101,7 +101,7 @@ $this->add(
         );
 ```
 
-You can use too the filter as standalone on other form elements with custom formats if needed. For this, use the filter FQCN.
+You can too use the filter as standalone on other form elements with custom formats, if needed. For this, use the filter FQCN.
 
 If you use the filter shortname (```php DateToDateTime ```), the config will be pulled form the service config (ie. The options array will be ignored).
 
@@ -114,7 +114,7 @@ public function getInputFilterSpecification()
                     [
                         'name' => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
                         'options' => [
-                            'format' => 'd/m/Y' ('date_format' is also accepted)
+                            'format' => 'd/m/Y' ('date_format' key is also accepted)
                         ]
                     ],
                 ],
@@ -142,7 +142,7 @@ public function getInputFilterSpecification()
 }
 ```
 
-/!\ If you don't create your fieldsets/forms via the FormElementManager, you must manually inject $sl so the HydratedDate can fetch the configuration
+/!\ If you don't create your fieldsets/forms via the FormElementManager, you must manually inject the SL so the HydratedDate element can fetch the configuration
 ```php
 $this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```
@@ -160,4 +160,4 @@ You can use the provided strategy as standalone with your hydrators too.
 TODO
 ====
 
-Handle Time, and Datetime format.
+Handle Time and Datetime.
