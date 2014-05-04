@@ -25,8 +25,10 @@ return [
     ],
     'form_elements'   => [
         'factories' => [
-            'Zend\Form\Element\Date' => HydratedDateFactory::class,
-            'Date'                   => HydratedDateFactory::class,
+            'Date' => HydratedDateFactory::class,
         ],
+        'aliases'   => [
+            'Zend\Form\Element\Date' => 'Date',
+        ]
     ],
 ];

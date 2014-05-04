@@ -35,11 +35,22 @@ class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testZendFormElementDateIsOverriddenByAlias()
+    {
+        $filterManager = $this->serviceManager->get('FormElementManager');
+
+        $this->assertInstanceOf(
+            HydratedDate::class,
+            $filterManager->get('Zend\Form\Element\Date')
+        );
+    }
+
     public function testElementNamesOverrideZfOnes()
     {
         $filterManager = $this->serviceManager->get('FormElementManager');
 
         $this->assertInstanceOf(HydratedDate::class, $filterManager->get('Date'));
+        $this->assertInstanceOf(HydratedDate::class, $filterManager->get('Zend\Form\Element\Date'));
         $this->assertInstanceOf(HydratedDate::class, $filterManager->get(Date::class));
     }
 
