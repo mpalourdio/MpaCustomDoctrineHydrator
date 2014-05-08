@@ -163,7 +163,7 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
      * @param array $options
      * @return bool
      */
-    public function stringLengthValidatorCallback($value, $context = null, $options)
+    public function stringLengthValidatorCallback($value, $context, $options)
     {
         if (null !== $value && strlen($value) > $options['length']) {
             return false;
