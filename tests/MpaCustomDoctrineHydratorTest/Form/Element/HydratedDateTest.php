@@ -48,16 +48,16 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
         $element->setName('hydrated');
         $inputSpec = $element->getInputSpecification();
 
-        $this->assertArrayHasKey('filters', $inputSpec, 'testElementHasItsOwnFilters1()');
+        $this->assertArrayHasKey('filters', $inputSpec, 'testElementHasItsOwnFilters#1');
         $this->assertEquals(
             StringTrim::class,
             $inputSpec['filters'][0]['name'],
-            'testElementHasItsOwnFilters2()'
+            'testElementHasItsOwnFilters#2'
         );
         $this->assertEquals(
             'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
             $inputSpec['filters'][1]['name'],
-            'testElementHasItsOwnFilters3()'
+            'testElementHasItsOwnFilters#3'
         );
     }
 
@@ -67,16 +67,11 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
         $element->setName('hydrated');
         $inputSpec = $element->getInputSpecification();
 
-        $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators1()');
+        $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators#1');
         $this->assertInstanceOf(
             Date::class,
-            $inputSpec['validators'][0],
-            'testElementHasItsParentValidators2()'
-        );
-        $this->assertInstanceOf(
-            'Zend\Validator\DateStep',
-            $inputSpec['validators'][1],
-            'testElementHasItsParentValidators3()'
+            $inputSpec['validators'],
+            'testElementHasItsParentValidators#2'
         );
     }
 
