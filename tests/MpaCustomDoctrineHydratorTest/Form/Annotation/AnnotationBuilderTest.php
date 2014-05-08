@@ -8,9 +8,9 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydratorTest\Form;
+namespace MpaCustomDoctrineHydratorTest\Form\Annotation;
 
-use MpaCustomDoctrineHydrator\Form\AnnotationBuilder;
+use MpaCustomDoctrineHydrator\Form\Annotation\AnnotationBuilder;
 use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 use Zend\Form\Factory;

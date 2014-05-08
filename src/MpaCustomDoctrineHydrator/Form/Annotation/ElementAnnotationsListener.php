@@ -8,7 +8,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydrator\Listener;
+namespace MpaCustomDoctrineHydrator\Form\Annotation;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineORMModule\Form\Annotation\ElementAnnotationsListener as DoctrineElementAnnotationsListener;

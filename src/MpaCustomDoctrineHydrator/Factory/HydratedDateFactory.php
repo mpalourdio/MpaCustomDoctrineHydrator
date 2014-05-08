@@ -8,9 +8,10 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydrator\Form\Element;
+namespace MpaCustomDoctrineHydrator\Factory;
 
 use Locale;
+use MpaCustomDoctrineHydrator\Form\Element\HydratedDate;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

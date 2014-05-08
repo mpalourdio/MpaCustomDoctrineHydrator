@@ -8,7 +8,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydratorTest\Form\Element;
+namespace MpaCustomDoctrineHydratorTest\Factory;
 
 use MpaCustomDoctrineHydrator\Form\Element\HydratedDate;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
@@ -16,7 +16,6 @@ use Zend\Form\Element\Date;
 
 class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $serviceManager;
 
     protected function setUp()

@@ -8,25 +8,25 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydrator\Services;
+namespace MpaCustomDoctrineHydrator\Factory;
 
-use Locale;
+use MpaCustomDoctrineHydrator\Form\Annotation\AnnotationBuilder;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class CustomHydratorFactory implements FactoryInterface
+class AnnotationBuilderFactory implements FactoryInterface
 {
     /**
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return CustomHydrator
+     * @return AnnotationBuilder
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return new CustomHydrator(
+        return new AnnotationBuilder(
             $serviceLocator->get('doctrine.entitymanager.orm_default'),
-            $serviceLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()]
+            $serviceLocator->get('FormElementManager')
         );
     }
 }

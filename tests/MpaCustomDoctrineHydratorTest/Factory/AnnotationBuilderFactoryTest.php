@@ -8,25 +8,24 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydratorTest\Filter;
+namespace MpaCustomDoctrineHydratorTest\Factory;
 
-use MpaCustomDoctrineHydrator\Filter\DateToDateTime;
+use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
+use MpaCustomDoctrineHydrator\Form\Annotation\AnnotationBuilder;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
-class DateToDatetimeFactoryTest extends \PHPUnit_Framework_TestCase
+class AnnotationBuilderFactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $serviceManager;
 
     protected function setUp()
     {
-        \Locale::setDefault('fr-CH');
         $this->serviceManager = ServiceManagerFactory::getServiceManager();
     }
 
-    public function testWeCanGrabTheFilterByItsFactoryShortName()
+    public function testFactoryReturnsInstance()
     {
-        $filterManager = $this->serviceManager->get('FilterManager');
-        $this->assertInstanceOf(DateToDateTime::class, $filterManager->get('DateToDateTime'));
+        $factory = new AnnotationBuilderFactory();
+        $this->assertInstanceOf(AnnotationBuilder::class, $factory->createService($this->serviceManager));
     }
 }

@@ -8,28 +8,26 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydrator\Filter;
+namespace MpaCustomDoctrineHydrator\Factory;
 
 use Locale;
+use MpaCustomDoctrineHydrator\Services\CustomHydrator;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class DateToDateTimeFactory implements FactoryInterface
+class CustomHydratorFactory implements FactoryInterface
 {
     /**
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return DateToDateTime
+     * @return CustomHydrator
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $parentLocator = $serviceLocator->getServiceLocator();
-
-        $filter = new DateToDateTime(
-            $parentLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()]
+        return new CustomHydrator(
+            $serviceLocator->get('doctrine.entitymanager.orm_default'),
+            $serviceLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()]
         );
-
-        return $filter;
     }
 }

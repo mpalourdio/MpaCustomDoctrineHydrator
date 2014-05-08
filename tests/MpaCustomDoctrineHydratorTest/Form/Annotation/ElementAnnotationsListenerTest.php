@@ -8,9 +8,9 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydratorTest\Listener;
+namespace MpaCustomDoctrineHydratorTest\Form\Annotation;
 
-use MpaCustomDoctrineHydrator\Listener\ElementAnnotationsListener;
+use MpaCustomDoctrineHydrator\Form\Annotation\ElementAnnotationsListener;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
 class ElementAnnotationsListenerTest extends \PHPUnit_Framework_TestCase

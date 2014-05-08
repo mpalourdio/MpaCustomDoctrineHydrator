@@ -8,9 +8,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydrator\Form;
+namespace MpaCustomDoctrineHydrator\Form\Annotation;
 
-use MpaCustomDoctrineHydrator\Listener\ElementAnnotationsListener;
 use Doctrine\Common\Persistence\ObjectManager;
 use DoctrineORMModule\Form\Annotation\AnnotationBuilder as DoctrineAnnotationBuilder;
 use Zend\EventManager\EventManagerInterface;
@@ -34,7 +33,7 @@ class AnnotationBuilder extends DoctrineAnnotationBuilder
          * We set the FEM as form factory so the ZF2 AnnotationBuilder
          * is aware of custom form elements names
          */
-        $this->formFactory =  new Factory($this->formElementManager);
+        $this->formFactory = new Factory($this->formElementManager);
     }
 
     /**

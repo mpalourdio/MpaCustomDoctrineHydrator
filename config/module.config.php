@@ -8,10 +8,10 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-use MpaCustomDoctrineHydrator\Filter\DateToDateTimeFactory;
-use MpaCustomDoctrineHydrator\Form\AnnotationBuilderFactory;
-use MpaCustomDoctrineHydrator\Form\Element\HydratedDateFactory;
-use MpaCustomDoctrineHydrator\Services\CustomHydratorFactory;
+use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
+use MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory;
+use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFactory;
+use MpaCustomDoctrineHydrator\Factory\HydratedDateFactory;
 
 return [
     'service_manager' => [

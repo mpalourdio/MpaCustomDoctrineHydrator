@@ -8,7 +8,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace MpaCustomDoctrineHydratorTest\Services;
+namespace MpaCustomDoctrineHydratorTest\Factory;
 
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
