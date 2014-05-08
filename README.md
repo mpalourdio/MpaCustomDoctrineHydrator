@@ -9,6 +9,8 @@ MpaCustomDoctrineHydrator
 Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.
 Extends and replace the ZF2 Date Element to make it compliant 'out-of-the-box' with doctrine hydration.
 
+Provides an extension of the DoctrineORMModule form annotation builder and a factory.
+
 The filter and the element can be used as standalone. Using the provided element via the FormElementManager adds automatic conversion formats for date strings to \DateTime.
 Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too when rendered.
 
@@ -39,15 +41,19 @@ see http://www.php.net/manual/fr/datetime.createfromformat.php
 Usage (the easy and lazy way)
 =============================
 
-Create your forms with the doctrine ORM form annotation builder. Just set the FEM as the form factory
+Create your forms with the provided annotation builder.
 
 ```php
-$builder       = new \DoctrineORMModule\Form\Annotation\AnnotationBuilder($this->entityManager);
-$builder->setFormFactory(
-    new \Zend\Form\Factory($this->serviceLocator->get('FormElementManager'))
-        );
+$builder       = new \MpaCustomDoctrineHydrator\Form\Annotation\AnnotationBuilder($this->entityManager, $this->formElementManager);
 $form = $builder->createForm('User');
 ```
+
+Or with the factory
+
+```php
+$form = $this->get('annotationbuilder')->createForm('User');
+```
+
 Then, hydrate your form
 
 ```php
