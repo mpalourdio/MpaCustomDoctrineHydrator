@@ -78,7 +78,7 @@ $this->add(
                 ],
                 'options'    => [
                     'label'  => 'My date',
-                    'format' => 'd.m/Y' // format needed
+                    'format' => 'd/m/Y' // format needed
                 ],
             ]
         );
