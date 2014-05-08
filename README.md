@@ -51,7 +51,7 @@ $form = $builder->createForm('User');
 Or with the factory
 
 ```php
-$form = $this->get('annotationbuilder')->createForm('User');
+$form = $this->sm->get('annotationbuilder')->createForm('User');
 ```
 
 Then, hydrate your form
