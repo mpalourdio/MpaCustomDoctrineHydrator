@@ -30,6 +30,78 @@ class Birthday
      * @ORM\Column(type="date", nullable=false)
      */
     protected $date;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="time", nullable=false)
+     */
+    protected $time;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true, length=23)
+     */
+    protected $name;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $age;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="bool", nullable=true)
+     */
+    protected $canDrinkMojito;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="float", nullable=true)
+     */
+    protected $weight;
+
+    /**
+     * @param int $age
+     * @return self
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param int $canDrinkMojito
+     * @return self
+     */
+    public function setCanDrinkMojito($canDrinkMojito)
+    {
+        $this->canDrinkMojito = $canDrinkMojito;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCanDrinkMojito()
+    {
+        return $this->canDrinkMojito;
+    }
 
     /**
      * @param \DateTime $date
@@ -51,7 +123,7 @@ class Birthday
     }
 
     /**
-     * @param int $identifier
+     * @param mixed $identifier
      * @return self
      */
     public function setIdentifier($identifier)
@@ -62,10 +134,67 @@ class Birthday
     }
 
     /**
-     * @return int
+     * @return mixed
      */
     public function getIdentifier()
     {
         return $this->identifier;
+    }
+
+    /**
+     * @param string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param \DateTime $time
+     * @return self
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param int $weight
+     * @return self
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }
