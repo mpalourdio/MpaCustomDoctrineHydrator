@@ -27,45 +27,45 @@ class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testWeCanGrabTheElementByItsFactory()
     {
-        $filterManager = $this->serviceManager->get('FormElementManager');
+        $formElementManager = $this->serviceManager->get('FormElementManager');
 
         $this->assertInstanceOf(
             HydratedDate::class,
-            $filterManager->get('MpaCustomDoctrineHydrator\Form\Element\HydratedDate')
+            $formElementManager->get('MpaCustomDoctrineHydrator\Form\Element\HydratedDate')
         );
     }
 
     public function testZendFormElementDateIsOverriddenByAlias()
     {
-        $filterManager = $this->serviceManager->get('FormElementManager');
+        $formElementManager = $this->serviceManager->get('FormElementManager');
 
         $this->assertInstanceOf(
             HydratedDate::class,
-            $filterManager->get('Zend\Form\Element\Date')
+            $formElementManager->get('Zend\Form\Element\Date')
         );
     }
 
     public function testElementNamesOverrideZfOnes()
     {
-        $filterManager = $this->serviceManager->get('FormElementManager');
+        $formElementManager = $this->serviceManager->get('FormElementManager');
 
-        $this->assertInstanceOf(HydratedDate::class, $filterManager->get('Date'));
-        $this->assertInstanceOf(HydratedDate::class, $filterManager->get('Zend\Form\Element\Date'));
-        $this->assertInstanceOf(HydratedDate::class, $filterManager->get(Date::class));
+        $this->assertInstanceOf(HydratedDate::class, $formElementManager->get('Date'));
+        $this->assertInstanceOf(HydratedDate::class, $formElementManager->get('Zend\Form\Element\Date'));
+        $this->assertInstanceOf(HydratedDate::class, $formElementManager->get(Date::class));
     }
 
     public function testHasAPlaceholderAsAttribute()
     {
-        $filterManager = $this->serviceManager->get('FormElementManager');
-        $element       = $filterManager->get('Date');
+        $formElementManager = $this->serviceManager->get('FormElementManager');
+        $element            = $formElementManager->get('Date');
 
         $this->assertEquals('jj.mm.aaaa', $element->getAttribute('placeholder'));
     }
 
     public function testFactorySetsAFormatForDateTime()
     {
-        $filterManager = $this->serviceManager->get('FormElementManager');
-        $element       = $filterManager->get('Date');
+        $formElementManager = $this->serviceManager->get('FormElementManager');
+        $element            = $formElementManager->get('Date');
 
         $this->assertEquals('d.m.Y', $element->getFormat());
     }
