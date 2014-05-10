@@ -9,9 +9,9 @@ MpaCustomDoctrineHydrator
 Module that helps you deal with dates for DoctrineORMModule & ZF2 : filtering, hydration, Locale etc.
 Extends and replace the ZF2 Date Element to make it compliant 'out-of-the-box' with doctrine hydration.
 
-Provides an extension of the DoctrineORMModule ```php AnnotationBuilder``` and a factory for more ease. The ```php ElementAnnotationsListener``` is overridden too in order to better suit needs regarding filtering and validation.
+Provides an extension of the DoctrineORMModule ```AnnotationBuilder``` and a factory for more ease. The ```ElementAnnotationsListener``` is overridden too in order to better suit needs regarding filtering and validation.
 
-The filter and the element can be used as standalone. Using the provided element via the ```php FormElementManager``` adds automatic conversion formats for date strings to \DateTime.
+The filter and the element can be used as standalone. Using the provided element via the ```FormElementManager``` adds automatic conversion formats for date strings to \DateTime.
 Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too when rendered.
 
 The hydrator service adds a strategy to every date column in your entity for extraction and hydration.
