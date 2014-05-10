@@ -6,15 +6,15 @@
 MpaCustomDoctrineHydrator
 =========================
 
-Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.
+Module that helps you deal with dates for DoctrineORMModule & ZF2 : filtering, hydration, Locale etc.
 Extends and replace the ZF2 Date Element to make it compliant 'out-of-the-box' with doctrine hydration.
 
-Provides an extension of the DoctrineORMModule form annotation builder and a factory.
+Provides an extension of the DoctrineORMModule ```php AnnotationBuilder``` and a factory for more ease. The ```php ElementAnnotationsListener``` is overridden too in order to better suit needs regarding filtering and validation.
 
-The filter and the element can be used as standalone. Using the provided element via the FormElementManager adds automatic conversion formats for date strings to \DateTime.
+The filter and the element can be used as standalone. Using the provided element via the ```php FormElementManager``` adds automatic conversion formats for date strings to \DateTime.
 Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too when rendered.
 
-The hydrator service adds a strategy to every date columns of your entity for extraction and hydration.
+The hydrator service adds a strategy to every date column in your entity for extraction and hydration.
 
 Requirements
 ============
@@ -23,7 +23,7 @@ PHP 5.5+ - Only Composer installation supported
 
 Installation
 ============
-Add to the **require** list   of your composer.json
+Add to the **require** list of your composer.json
 "mpalourdio/mpa-custom-doctrine-hydrator": "0.*"
 
 Add "MpaCustomDoctrineHydrator" to your **modules list** in **application.config.php**
@@ -72,7 +72,7 @@ Usage (the hard and decoupled way)
 $hydrator = $this->sm->get('customdoctrinehydrator')->setEntity('Application\Entity\Myentity');
 $form->setHydrator($hydrator);
 ```
-In your forms classes, when not using the FormElementManager :
+In your forms classes, when not using the ```php FormElementManager``` :
 ```php
 
 $this->add(
