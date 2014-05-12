@@ -159,9 +159,9 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
     }
 
     /**
-     * @param string $value
-     * @param array  $context
-     * @param array  $options
+     * @param  string $value
+     * @param  array  $context
+     * @param  array  $options
      * @return bool
      */
     public function stringLengthValidatorCallback($value, $context, $options)
