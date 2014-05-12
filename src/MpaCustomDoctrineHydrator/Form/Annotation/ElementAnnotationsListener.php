@@ -150,9 +150,10 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
              * grab the validators of the HydratedDate Element
              */
             case 'date':
-                $inputSpec['validators'][] = $this->formElementManager
-                    ->get('Date')
-                    ->getInputSpecification()['validators'];
+                $validators = $this->formElementManager->get('Date')->getInputSpecification()['validators'];
+                foreach ($validators as $validator) {
+                    $inputSpec['validators'][] = $validator;
+                }
                 break;
         }
     }
