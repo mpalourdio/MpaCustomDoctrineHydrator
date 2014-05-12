@@ -70,7 +70,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators#1');
         $this->assertInstanceOf(
             Date::class,
-            $inputSpec['validators'],
+            $inputSpec['validators'][0],
             'testElementHasItsParentValidators#2'
         );
     }
