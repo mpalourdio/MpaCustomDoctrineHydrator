@@ -62,7 +62,9 @@ class HydratedDate extends Date implements InputProviderInterface
                     ]
                 ],
             ],
-            'validators' => $this->getDateValidator(),
+            'validators' => [
+                $this->getDateValidator()
+            ],
         ];
     }
 }
