@@ -22,7 +22,7 @@ class AnnotationBuilder extends DoctrineAnnotationBuilder
     protected $formElementManager;
 
     /**
-     * @param ObjectManager $objectManager
+     * @param ObjectManager      $objectManager
      * @param FormElementManager $formElementManager
      */
     public function __construct(ObjectManager $objectManager, FormElementManager $formElementManager)

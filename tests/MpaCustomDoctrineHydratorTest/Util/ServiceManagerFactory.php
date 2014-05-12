@@ -26,8 +26,8 @@ use Zend\ServiceManager\ServiceManager;
  * Base test case to be used when a new service manager instance is required
  *
  * @license MIT
- * @link https://github.com/zf-fr/ZfrRest
- * @author Marco Pivetta <ocramius@gmail.com>
+ * @link    https://github.com/zf-fr/ZfrRest
+ * @author  Marco Pivetta <ocramius@gmail.com>
  */
 abstract class ServiceManagerFactory
 {
@@ -55,7 +55,7 @@ abstract class ServiceManagerFactory
     }
 
     /**
-     * @param array|null $config
+     * @param  array|null $config
      * @return ServiceManager
      */
     public static function getServiceManager(array $config = null)

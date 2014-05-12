@@ -26,7 +26,7 @@ class DateToStringStrategy implements StrategyInterface
     }
 
     /**
-     * @param DateTime|null $value
+     * @param  DateTime|null $value
      * @return string|null
      * @throws \InvalidArgumentException
      */
@@ -45,7 +45,7 @@ class DateToStringStrategy implements StrategyInterface
     }
 
     /**
-     * @param string $value
+     * @param  string $value
      * @return string
      */
     public function hydrate($value)

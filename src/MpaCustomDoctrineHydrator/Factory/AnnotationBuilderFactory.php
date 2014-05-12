@@ -19,7 +19,7 @@ class AnnotationBuilderFactory implements FactoryInterface
     /**
      * Create service
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  ServiceLocatorInterface $serviceLocator
      * @return AnnotationBuilder
      */
     public function createService(ServiceLocatorInterface $serviceLocator)

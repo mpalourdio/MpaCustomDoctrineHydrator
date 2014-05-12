@@ -19,7 +19,7 @@ use Zend\Validator\Callback;
 class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
 {
     /**
-     * @param ObjectManager $objectManager
+     * @param ObjectManager      $objectManager
      * @param FormElementManager $formElementManager
      */
     public function __construct(ObjectManager $objectManager, FormElementManager $formElementManager)
@@ -160,8 +160,8 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
 
     /**
      * @param string $value
-     * @param $context
-     * @param array $options
+     * @param array  $context
+     * @param array  $options
      * @return bool
      */
     public function stringLengthValidatorCallback($value, $context, $options)

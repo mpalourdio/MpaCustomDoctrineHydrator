@@ -20,7 +20,7 @@ class DateToDateTimeFactory implements FactoryInterface
     /**
      * Create service
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  ServiceLocatorInterface $serviceLocator
      * @return DateToDateTime
      */
     public function createService(ServiceLocatorInterface $serviceLocator)

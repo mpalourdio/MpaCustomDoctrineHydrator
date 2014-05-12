@@ -30,7 +30,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
     }
 
     /**
-     * @param string $format
+     * @param  string $format
      * @return self
      */
     public function setFormat($format)
@@ -52,7 +52,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      * Allow the format key to bey format and date_format
      * For consistency with the ZF2 Date Element
      *
-     * @param array $options
+     * @param  array $options
      * @return self
      */
     public function setOptions($options)
@@ -66,7 +66,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      * Converts a date string to a \DateTime
      * according to the date format given
      *
-     * @param string $value
+     * @param  string $value
      * @return \DateTime|string
      */
     public function filter($value)

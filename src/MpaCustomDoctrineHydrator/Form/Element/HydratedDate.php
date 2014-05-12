@@ -28,7 +28,7 @@ class HydratedDate extends Date implements InputProviderInterface
      * Accepted options for DateTime:
      * - format: A \DateTime compatible string
      *
-     * @param array|\Traversable $options
+     * @param  array|\Traversable $options
      * @return \DateTime
      */
     public function setOptions($options)

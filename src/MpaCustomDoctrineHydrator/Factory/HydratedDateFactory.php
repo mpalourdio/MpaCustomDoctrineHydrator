@@ -20,7 +20,7 @@ class HydratedDateFactory implements FactoryInterface
     /**
      * Create service
      *
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  ServiceLocatorInterface $serviceLocator
      * @return HydratedDate
      */
     public function createService(ServiceLocatorInterface $serviceLocator)

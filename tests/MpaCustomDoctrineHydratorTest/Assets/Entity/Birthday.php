@@ -66,7 +66,7 @@ class Birthday
     protected $weight;
 
     /**
-     * @param int $age
+     * @param  int $age
      * @return self
      */
     public function setAge($age)
@@ -85,7 +85,7 @@ class Birthday
     }
 
     /**
-     * @param int $canDrinkMojito
+     * @param  int $canDrinkMojito
      * @return self
      */
     public function setCanDrinkMojito($canDrinkMojito)
@@ -104,7 +104,7 @@ class Birthday
     }
 
     /**
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return self
      */
     public function setDate($date)
@@ -123,7 +123,7 @@ class Birthday
     }
 
     /**
-     * @param mixed $identifier
+     * @param  mixed $identifier
      * @return self
      */
     public function setIdentifier($identifier)
@@ -142,7 +142,7 @@ class Birthday
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return self
      */
     public function setName($name)
@@ -161,7 +161,7 @@ class Birthday
     }
 
     /**
-     * @param \DateTime $time
+     * @param  \DateTime $time
      * @return self
      */
     public function setTime($time)
@@ -180,7 +180,7 @@ class Birthday
     }
 
     /**
-     * @param int $weight
+     * @param  int $weight
      * @return self
      */
     public function setWeight($weight)

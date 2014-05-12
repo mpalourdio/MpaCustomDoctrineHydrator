@@ -21,7 +21,7 @@ class CustomHydrator
 
     /**
      * @param EntityManagerInterface $entityManager
-     * @param array $dateConfig
+     * @param array                  $dateConfig
      */
     public function __construct(EntityManagerInterface $entityManager, array $dateConfig)
     {
@@ -30,7 +30,7 @@ class CustomHydrator
     }
 
     /**
-     * @param string $entity
+     * @param  string $entity
      * @return DoctrineHydrator
      */
     public function setEntity($entity)
