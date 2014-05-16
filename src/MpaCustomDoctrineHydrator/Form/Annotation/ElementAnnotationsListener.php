@@ -11,6 +11,7 @@
 namespace MpaCustomDoctrineHydrator\Form\Annotation;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\Mapping\ClassMetadata;
 use DoctrineORMModule\Form\Annotation\ElementAnnotationsListener as DoctrineElementAnnotationsListener;
 use Zend\EventManager\EventInterface;
 use Zend\Form\FormElementManager;
@@ -27,6 +28,26 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
         $this->objectManager      = $objectManager;
         $this->formElementManager = $formElementManager;
     }
+
+    /**
+     * Exclude GENERATOR_TYPE_IDENTITY && GENERATOR_TYPE_CUSTOM
+     * Because most of the time they are custom auto-incrementers
+     *
+     * @param EventInterface $event
+     * @internal
+     * @return bool
+     */
+    public function handleExcludeField(EventInterface $event)
+    {
+        /** @var \Doctrine\ORM\Mapping\ClassMetadataInfo $metadata */
+        $metadata    = $event->getParam('metadata');
+        $identifiers = $metadata->getIdentifierFieldNames();
+
+        return in_array($event->getParam('name'), $identifiers) &&
+               ($metadata->generatorType === ClassMetadata::GENERATOR_TYPE_IDENTITY ||
+                $metadata->generatorType === ClassMetadata::GENERATOR_TYPE_CUSTOM);
+    }
+
 
     /**
      * @param EventInterface $event
