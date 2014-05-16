@@ -11,7 +11,9 @@
 namespace MpaCustomDoctrineHydratorTest\Form\Annotation;
 
 use MpaCustomDoctrineHydrator\Form\Annotation\ElementAnnotationsListener;
+use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use Zend\EventManager\Event;
 
 class ElementAnnotationsListenerTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,5 +49,21 @@ class ElementAnnotationsListenerTest extends \PHPUnit_Framework_TestCase
         $result   = $listener->stringLengthValidatorCallback('test', null, ['length' => 4]);
 
         $this->assertTrue($result);
+    }
+
+    public function testCustomGeneratorAreExcluded()
+    {
+        $event    = new Event();
+        $metadata = $this->entityManager->getClassMetadata(Birthday::class);
+
+        $event->setParam('metadata', $metadata);
+        $event->setParam('name', 'identifier');
+
+        $listener = new ElementAnnotationsListener(
+            $this->entityManager,
+            $this->formElementManager
+        );
+
+        $this->assertTrue($listener->handleExcludeField($event));
     }
 }
