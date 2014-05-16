@@ -19,7 +19,8 @@ class Birthday
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="MpaCustomDoctrineHydratorTest\Assets\Entity\CustomGenerator")
      * @ORM\Column(type="integer")
      */
     protected $identifier;
