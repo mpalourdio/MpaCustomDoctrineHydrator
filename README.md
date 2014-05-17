@@ -11,8 +11,8 @@ Extends and replace the ZF2 Date Element to make it compliant 'out-of-the-box' w
 
 Provides an extension of the DoctrineORMModule ```AnnotationBuilder``` and a factory for more ease. The ```ElementAnnotationsListener``` is overridden too in order to better suit needs regarding filtering and validation.
 
-The filter and the element can be used as standalone. Using the provided element via the ```FormElementManager``` adds automatic conversion formats for date strings to \DateTime.
-Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the \Locale. A placeholder is added to your form element too when rendered.
+The filter and the element can be used as standalone. Using the provided element via the ```FormElementManager``` adds automatic conversion formats for date strings to ```DateTime```.
+Automatic filtering and validation are provided regarding the date format (Y-m-d, etc.) that depends of the ```Locale```. A placeholder is added to your form element too when rendered.
 
 The hydrator service adds a strategy to every date column in your entity for extraction and hydration.
 
@@ -34,7 +34,7 @@ Configuration
 Copy **mpacustomdoctrinehydrator.config.global.php.dist** in your **autoload folder** and rename it by removing the .dist
 extension.
 
-Add your own date formats (if needed) that are compliant with php \DateTime
+Add your own date formats (if needed) that are compliant with php ```DateTime```
 
 see http://www.php.net/manual/fr/datetime.createfromformat.php
 
@@ -90,7 +90,7 @@ $this->add(
         );
 ```
 
-If you pull your forms from the FEM, just grab the element as a 'Date' or 'Zend\Form\Element\Date'. The format option is not needed here, config will be pulled from service config.
+If you pull your forms from the ```FEM```, just grab the element as a ```'Date'``` or ```'Zend\Form\Element\Date'```. The format option is not needed here, config will be pulled from service config.
 
 ```php
 $this->add(
@@ -148,12 +148,12 @@ public function getInputFilterSpecification()
 }
 ```
 
-/!\ If you don't create your fieldsets/forms via the FormElementManager, you must manually inject the SL so the HydratedDate element can fetch the configuration
+/!\ If you don't create your fieldsets/forms via the ```FormElementManager```, you must manually inject the SL so the ```HydratedDate``` element can fetch the configuration
 ```php
 $this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```
 
-/!\ Tip : To use the 'DateToDateTime' filter short name in a form grabbed without the FEM , you must do the following :
+/!\ Tip : To use the ```'DateToDateTime'``` filter short name in a form grabbed without the ```FEM```, you must do the following :
 ```php
 $plugins = $this->sm ->get('FilterManager');
 $chain   = new FilterChain;
