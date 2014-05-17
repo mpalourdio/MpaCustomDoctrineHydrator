@@ -72,7 +72,7 @@ Usage (the hard and decoupled way)
 $hydrator = $this->sm->get('customdoctrinehydrator')->setEntity('Application\Entity\Myentity');
 $form->setHydrator($hydrator);
 ```
-In your forms classes, when not using the ```php FormElementManager``` :
+In your forms classes, when not using the ```FormElementManager``` :
 ```php
 
 $this->add(
@@ -109,7 +109,7 @@ $this->add(
 
 You can too use the filter as standalone on other form elements with custom formats, if needed. For this, use the filter FQCN.
 
-If you use the filter shortname (```php DateToDateTime ```), the config will be pulled form the service config (ie. The options array will be ignored).
+If you use the filter shortname (```DateToDateTime ```), the config will be pulled form the service config (ie. The options array will be ignored).
 
 ```php
 public function getInputFilterSpecification()
