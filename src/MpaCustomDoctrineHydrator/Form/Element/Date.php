@@ -16,8 +16,6 @@ use Zend\InputFilter\InputProviderInterface;
 
 class Date extends ZendDate implements InputProviderInterface
 {
-    protected $parentLocator;
-
     /**
      * Override the type="date" because we can't
      * set a placeholder on html5 date input
