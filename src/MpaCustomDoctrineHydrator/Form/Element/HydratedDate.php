@@ -56,7 +56,7 @@ class HydratedDate extends Date implements InputProviderInterface
             'filters'    => [
                 ['name' => StringTrim::class],
                 [
-                    'name'    => 'MpaCustomDoctrineHydrator\Filter\DateToDateTimeFilter',
+                    'name'    => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
                     'options' => [
                         'date_format' => $this->getFormat(),
                     ]

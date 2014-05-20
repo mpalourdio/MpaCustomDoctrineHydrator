@@ -55,7 +55,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
             'testElementHasItsOwnFilters#2'
         );
         $this->assertEquals(
-            'MpaCustomDoctrineHydrator\Filter\DateToDateTimeFilter',
+            'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
             $inputSpec['filters'][1]['name'],
             'testElementHasItsOwnFilters#3'
         );

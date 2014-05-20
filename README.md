@@ -118,7 +118,7 @@ public function getInputFilterSpecification()
             'otherdate' => [
                 'filters' => [
                     [
-                        'name' => 'MpaCustomDoctrineHydrator\Filter\DateToDateTimeFilter',
+                        'name' => 'MpaCustomDoctrineHydrator\Filter\DateToDateTime',
                         'options' => [
                             'format' => 'd/m/Y' ('date_format' key is also accepted)
                         ]

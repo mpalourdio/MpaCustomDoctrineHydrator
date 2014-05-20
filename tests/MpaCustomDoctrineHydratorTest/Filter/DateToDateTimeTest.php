@@ -10,10 +10,10 @@
 
 namespace MpaCustomDoctrineHydratorTest\Filter;
 
-use MpaCustomDoctrineHydrator\Filter\DateToDateTimeFilter;
+use MpaCustomDoctrineHydrator\Filter\DateToDateTime;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
-class DateToDateTimeFilterTest extends \PHPUnit_Framework_TestCase
+class DateToDateTimeTest extends \PHPUnit_Framework_TestCase
 {
     protected $serviceManager;
 
@@ -27,7 +27,7 @@ class DateToDateTimeFilterTest extends \PHPUnit_Framework_TestCase
     {
         $serviceConfig = $this->serviceManager
             ->get('Config')['mpacustomdoctrinehydrator']['formats'][\Locale::getDefault()];
-        $filter        = new DateToDateTimeFilter($serviceConfig);
+        $filter        = new DateToDateTime($serviceConfig);
 
         $this->assertEquals('DateTime', get_class($filter('10.12.2012')));
     }
@@ -36,14 +36,14 @@ class DateToDateTimeFilterTest extends \PHPUnit_Framework_TestCase
     {
         $serviceConfig = $this->serviceManager
             ->get('Config')['mpacustomdoctrinehydrator']['formats'][\Locale::getDefault()];
-        $filter        = new DateToDateTimeFilter($serviceConfig);
+        $filter        = new DateToDateTime($serviceConfig);
 
         $this->assertEquals('100.102.20102', $filter('100.102.20102'));
     }
 
     public function testCanManuallySetformat()
     {
-        $filter        = new DateToDateTimeFilter();
+        $filter        = new DateToDateTime();
         $filter->setFormat('d/m/Y');
 
         $this->assertEquals('DateTime', get_class($filter('10/12/2012')));
@@ -51,7 +51,7 @@ class DateToDateTimeFilterTest extends \PHPUnit_Framework_TestCase
 
     public function testFormatAndDateFormatAreValidConfigKeysForFilterOptions()
     {
-        $filter        = new DateToDateTimeFilter();
+        $filter        = new DateToDateTime();
 
         $filter->setOptions(['date_format' => 'date_format']);
         $this->assertEquals($filter->getFormat(), 'date_format');

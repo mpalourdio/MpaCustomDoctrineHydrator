@@ -10,7 +10,7 @@
 
 namespace MpaCustomDoctrineHydratorTest\Factory;
 
-use MpaCustomDoctrineHydrator\Filter\DateToDateTimeFilter;
+use MpaCustomDoctrineHydrator\Filter\DateToDateTime;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
 class DateToDatetimeFilterFactoryTest extends \PHPUnit_Framework_TestCase
@@ -27,6 +27,6 @@ class DateToDatetimeFilterFactoryTest extends \PHPUnit_Framework_TestCase
     public function testWeCanGrabTheFilterByItsFactoryShortName()
     {
         $filterManager = $this->serviceManager->get('FilterManager');
-        $this->assertInstanceOf(DateToDateTimeFilter::class, $filterManager->get('DateToDateTime'));
+        $this->assertInstanceOf(DateToDateTime::class, $filterManager->get('DateToDateTime'));
     }
 }
