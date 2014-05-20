@@ -10,9 +10,9 @@
 
 namespace MpaCustomDoctrineHydratorTest\Stdlib\Strategy;
 
-use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\DateToStringStrategy;
+use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\FormatConversionStrategy;
 
-class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
+class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
 {
     protected $dateConfig;
 
@@ -30,7 +30,7 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
 
     public function testDateToStringStrategyCanExtractAndFormatDate()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig['date_format']);
+        $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
         $today    = new \DateTime('2014-05-01');
 
         $this->assertEquals('01/05/2014', $strategy->extract($today));
@@ -38,7 +38,7 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
 
     public function testDateToStringStrategyCanExtractAndFormatDateAndTime()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig['datetime_format']);
+        $strategy = new FormatConversionStrategy($this->dateConfig['datetime_format']);
         $today    = new \DateTime('2014-05-01 05:11:24');
 
         $this->assertEquals('01/05/2014 05:11:24', $strategy->extract($today));
@@ -46,7 +46,7 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
 
     public function testDateToStringStrategyReturnsANullValueIfNullPassedToConstructor()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig['date_format']);
+        $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
         $today    = null;
 
         $this->assertNull($strategy->extract($today));
@@ -57,14 +57,14 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
      */
     public function testDateToStringStrategyThrowsException()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig);
+        $strategy = new FormatConversionStrategy($this->dateConfig);
         $today    = 'chewbacca';
         $strategy->extract($today);
     }
 
     public function testCanHydrate()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig['date_format']);
+        $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
 
         $this->assertEquals('test', $strategy->hydrate('test'));
     }
@@ -74,7 +74,7 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
      */
     public function testStrategyThrowsExceptionIfStringNotGiven()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig);
+        $strategy = new FormatConversionStrategy($this->dateConfig);
 
         $this->assertEquals('test', $strategy->hydrate('test'));
     }

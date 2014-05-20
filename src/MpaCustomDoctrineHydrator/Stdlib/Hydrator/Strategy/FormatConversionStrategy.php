@@ -13,7 +13,7 @@ namespace MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy;
 use DateTime;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
-class DateToStringStrategy implements StrategyInterface
+class FormatConversionStrategy implements StrategyInterface
 {
     protected $conversionFormat;
 

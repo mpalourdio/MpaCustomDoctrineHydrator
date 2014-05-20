@@ -12,7 +12,7 @@ namespace MpaCustomDoctrineHydrator\Services;
 
 use Doctrine\ORM\EntityManagerInterface;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
-use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\DateToStringStrategy;
+use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\FormatConversionStrategy;
 
 class CustomHydrator
 {
@@ -41,9 +41,9 @@ class CustomHydrator
         foreach ($columns as $column) {
             $type = $this->entityManager->getClassMetadata($entity)->getTypeOfColumn($column);
             if ('date' === $type) {
-                $hydrator->addStrategy($column, new DateToStringStrategy($this->dateConfig['date_format']));
+                $hydrator->addStrategy($column, new FormatConversionStrategy($this->dateConfig['date_format']));
             } elseif ('datetime' === $type) {
-                $hydrator->addStrategy($column, new DateToStringStrategy($this->dateConfig['datetime_format']));
+                $hydrator->addStrategy($column, new FormatConversionStrategy($this->dateConfig['datetime_format']));
             }
         }
 
