@@ -15,14 +15,17 @@ use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 class DateToStringStrategy implements StrategyInterface
 {
-    protected $dateConfig;
+    protected $conversionFormat;
 
     /**
-     * @param array $dateConfig
+     * @param string $conversionFormat
      */
-    public function __construct(array $dateConfig)
+    public function __construct($conversionFormat)
     {
-        $this->dateConfig = $dateConfig;
+        if (!is_string($conversionFormat)) {
+            throw new \InvalidArgumentException(sprintf('The strategy is expecting as string as constructor argument'));
+        }
+        $this->conversionFormat = $conversionFormat;
     }
 
     /**
@@ -38,7 +41,7 @@ class DateToStringStrategy implements StrategyInterface
                 throw new \InvalidArgumentException(sprintf('Field "%s" is not a valid DateTime object', $value));
             }
 
-            return $value->format($this->dateConfig['date_format']);
+            return $value->format($this->conversionFormat);
         } else {
             return $value;
         }
