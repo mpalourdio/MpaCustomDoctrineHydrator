@@ -41,7 +41,9 @@ class CustomHydrator
         foreach ($columns as $column) {
             $type = $this->entityManager->getClassMetadata($entity)->getTypeOfColumn($column);
             if ('date' === $type) {
-                $hydrator->addStrategy($column, new DateToStringStrategy($this->dateConfig));
+                $hydrator->addStrategy($column, new DateToStringStrategy($this->dateConfig['date_format']));
+            } elseif ('datetime' === $type) {
+                $hydrator->addStrategy($column, new DateToStringStrategy($this->dateConfig['datetime_format']));
             }
         }
 
