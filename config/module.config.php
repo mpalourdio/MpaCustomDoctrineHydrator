@@ -10,6 +10,8 @@
 
 use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
 use MpaCustomDoctrineHydrator\Factory\DateElementFactory;
+use MpaCustomDoctrineHydrator\Factory\DateTimeElementFactory;
+use MpaCustomDoctrineHydrator\Factory\DateTimeToDateTimeFilterFactory;
 use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFilterFactory;
 use MpaCustomDoctrineHydrator\Factory\EntityAttacherFactory;
 
@@ -22,15 +24,18 @@ return [
     ],
     'filters'         => [
         'factories' => [
-            'DateToDateTime' => DateToDateTimeFilterFactory::class,
+            'DateToDateTime'     => DateToDateTimeFilterFactory::class,
+            'DateTimeToDateTime' => DateTimeToDateTimeFilterFactory::class,
         ],
     ],
     'form_elements'   => [
         'factories' => [
-            'Date' => DateElementFactory::class,
+            'Date'     => DateElementFactory::class,
+            'DateTime' => DateTimeElementFactory::class,
         ],
         'aliases'   => [
-            'Zend\Form\Element\Date' => 'Date',
+            'Zend\Form\Element\Date'     => 'Date',
+            'Zend\Form\Element\DateTime' => 'DateTime',
         ]
     ],
 ];
