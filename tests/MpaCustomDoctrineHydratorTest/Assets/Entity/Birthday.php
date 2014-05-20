@@ -31,6 +31,14 @@ class Birthday
      * @ORM\Column(type="date", nullable=false)
      */
     protected $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    protected $meeting;
+
     /**
      * @var \DateTime
      *
@@ -197,5 +205,24 @@ class Birthday
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getMeeting()
+    {
+        return $this->meeting;
+    }
+
+    /**
+     * @param \DateTime $meeting
+     * @return self
+     */
+    public function setMeeting($meeting)
+    {
+        $this->meeting = $meeting;
+
+        return $this;
     }
 }
