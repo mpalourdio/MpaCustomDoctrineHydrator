@@ -55,9 +55,9 @@ class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testFormatConversionStrategyThrowsException()
+    public function testFormatConversionStrategyThrowsExceptionAtExtraction()
     {
-        $strategy = new FormatConversionStrategy($this->dateConfig);
+        $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
         $today    = 'chewbacca';
         $strategy->extract($today);
     }
