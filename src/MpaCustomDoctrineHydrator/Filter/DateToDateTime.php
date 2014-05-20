@@ -20,7 +20,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
 
     /**
      * @param  array|null $options
-     * @return DateToDateTime
+     * @return self
      */
     public function __construct($options = null)
     {
@@ -31,7 +31,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
 
     /**
      * @param  string $format
-     * @return DateToDateTime
+     * @return self
      */
     public function setFormat($format)
     {
@@ -53,7 +53,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      * For consistency with the ZF2 Date Element
      *
      * @param  array $options
-     * @return DateToDateTime
+     * @return self
      */
     public function setOptions($options)
     {
