@@ -109,7 +109,7 @@ $this->add(
 
 You can too use the filter as standalone on other form elements with custom formats, if needed. For this, use the filter FQCN.
 
-If you use the filter shortname (```DateToDateTime ```), the config will be pulled form the service config (ie. The options array will be ignored).
+If you use the filter shortname (```DateToDateTime ```), the config will be pulled from the service config (ie. The options array will be ignored).
 
 ```php
 public function getInputFilterSpecification()
