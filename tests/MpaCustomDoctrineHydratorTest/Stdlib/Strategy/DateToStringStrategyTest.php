@@ -28,17 +28,25 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    public function testDateToStringStrategyCanExtractAndFormat()
+    public function testDateToStringStrategyCanExtractAndFormatDate()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig);
+        $strategy = new DateToStringStrategy($this->dateConfig['date_format']);
         $today    = new \DateTime('2014-05-01');
 
         $this->assertEquals('01/05/2014', $strategy->extract($today));
     }
 
+    public function testDateToStringStrategyCanExtractAndFormatDateAndTime()
+    {
+        $strategy = new DateToStringStrategy($this->dateConfig['datetime_format']);
+        $today    = new \DateTime('2014-05-01 05:11:24');
+
+        $this->assertEquals('01/05/2014 05:11:24', $strategy->extract($today));
+    }
+
     public function testDateToStringStrategyReturnsANullValueIfNullPassedToConstructor()
     {
-        $strategy = new DateToStringStrategy($this->dateConfig);
+        $strategy = new DateToStringStrategy($this->dateConfig['date_format']);
         $today    = null;
 
         $this->assertNull($strategy->extract($today));
@@ -56,7 +64,18 @@ class DateToStringStrategyTest extends \PHPUnit_Framework_TestCase
 
     public function testCanHydrate()
     {
+        $strategy = new DateToStringStrategy($this->dateConfig['date_format']);
+
+        $this->assertEquals('test', $strategy->hydrate('test'));
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testStrategyThrowsExceptionIfStringNotGiven()
+    {
         $strategy = new DateToStringStrategy($this->dateConfig);
+
         $this->assertEquals('test', $strategy->hydrate('test'));
     }
 }
