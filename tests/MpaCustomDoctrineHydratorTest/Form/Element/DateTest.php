@@ -37,7 +37,7 @@ class DateTest extends \PHPUnit_Framework_TestCase
     public function testElementHasInputSpecification()
     {
         $element = new Date();
-        $element->setName('hydrated');
+        $element->setName('dateelement');
 
         $this->assertInternalType('array', $element->getInputSpecification());
     }
@@ -45,7 +45,7 @@ class DateTest extends \PHPUnit_Framework_TestCase
     public function testElementHasItsOwnFilters()
     {
         $element = new Date();
-        $element->setName('hydrated');
+        $element->setName('dateelement');
         $inputSpec = $element->getInputSpecification();
 
         $this->assertArrayHasKey('filters', $inputSpec, 'testElementHasItsOwnFilters#1');
@@ -64,7 +64,7 @@ class DateTest extends \PHPUnit_Framework_TestCase
     public function testElementHasItsParentValidators()
     {
         $element = new Date();
-        $element->setName('hydrated');
+        $element->setName('dateelement');
         $inputSpec = $element->getInputSpecification();
 
         $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators#1');
@@ -79,7 +79,7 @@ class DateTest extends \PHPUnit_Framework_TestCase
     {
         $format  = 'd.m.Y';
         $element = new Date();
-        $element->setName('hydrated');
+        $element->setName('dateelement');
         $element->setOptions(['date_format' => $format]);
 
         $this->assertEquals($format, $element->getOption('date_format'));
