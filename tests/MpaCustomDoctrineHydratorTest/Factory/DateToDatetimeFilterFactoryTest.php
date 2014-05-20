@@ -15,7 +15,6 @@ use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
 class DateToDatetimeFilterFactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $serviceManager;
 
     protected function setUp()
