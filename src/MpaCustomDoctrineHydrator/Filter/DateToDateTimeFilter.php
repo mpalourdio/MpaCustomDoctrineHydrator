@@ -14,13 +14,13 @@ use DateTime;
 use Zend\Filter\AbstractFilter;
 use Zend\Filter\FilterInterface;
 
-class DateToDateTime extends AbstractFilter implements FilterInterface
+class DateToDateTimeFilter extends AbstractFilter implements FilterInterface
 {
     protected $format = 'Y.m.d';
 
     /**
      * @param  array|null $options
-     * @return self
+     * @return DateToDateTimeFilter
      */
     public function __construct($options = null)
     {
@@ -31,7 +31,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
 
     /**
      * @param  string $format
-     * @return self
+     * @return DateToDateTimeFilter
      */
     public function setFormat($format)
     {
@@ -53,7 +53,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
      * For consistency with the ZF2 Date Element
      *
      * @param  array $options
-     * @return self
+     * @return DateToDateTimeFilter
      */
     public function setOptions($options)
     {

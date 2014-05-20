@@ -11,23 +11,23 @@
 namespace MpaCustomDoctrineHydrator\Factory;
 
 use Locale;
-use MpaCustomDoctrineHydrator\Filter\DateToDateTime;
+use MpaCustomDoctrineHydrator\Filter\DateToDateTimeFilter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class DateToDateTimeFactory implements FactoryInterface
+class DateToDateTimeFilterFactory implements FactoryInterface
 {
     /**
      * Create service
      *
      * @param  ServiceLocatorInterface $serviceLocator
-     * @return DateToDateTime
+     * @return DateToDateTimeFilter
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $parentLocator = $serviceLocator->getServiceLocator();
 
-        $filter = new DateToDateTime(
+        $filter = new DateToDateTimeFilter(
             $parentLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()]
         );
 

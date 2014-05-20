@@ -10,7 +10,7 @@
 
 use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
 use MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory;
-use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFactory;
+use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFilterFactory;
 use MpaCustomDoctrineHydrator\Factory\HydratedDateFactory;
 
 return [
@@ -22,7 +22,7 @@ return [
     ],
     'filters'         => [
         'factories' => [
-            'DateToDateTime' => DateToDateTimeFactory::class,
+            'DateToDateTime' => DateToDateTimeFilterFactory::class,
         ],
     ],
     'form_elements'   => [
