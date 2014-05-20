@@ -94,6 +94,14 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
                 }
                 break;
             case 'datetime':
+                /**
+                 * grab the filters of the DateTime Element
+                 */
+                $filters = $this->formElementManager->get('DateTime')->getInputSpecification()['filters'];
+                foreach ($filters as $filter) {
+                    $inputSpec['filters'][] = $filter;
+                }
+                break;
             case 'datetimetz':
             case 'time':
                 $inputSpec['filters'][] = ['name' => 'StringTrim'];
@@ -172,6 +180,15 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
              */
             case 'date':
                 $validators = $this->formElementManager->get('Date')->getInputSpecification()['validators'];
+                foreach ($validators as $validator) {
+                    $inputSpec['validators'][] = $validator;
+                }
+                break;
+            /**
+             * grab the validators of the DateTime Element
+             */
+            case 'datetime':
+                $validators = $this->formElementManager->get('DateTime')->getInputSpecification()['validators'];
                 foreach ($validators as $validator) {
                     $inputSpec['validators'][] = $validator;
                 }
