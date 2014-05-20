@@ -11,7 +11,7 @@
 use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
 use MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory;
 use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFilterFactory;
-use MpaCustomDoctrineHydrator\Factory\HydratedDateFactory;
+use MpaCustomDoctrineHydrator\Factory\DateElementFactory;
 
 return [
     'service_manager' => [
@@ -27,7 +27,7 @@ return [
     ],
     'form_elements'   => [
         'factories' => [
-            'Date' => HydratedDateFactory::class,
+            'Date' => DateElementFactory::class,
         ],
         'aliases'   => [
             'Zend\Form\Element\Date' => 'Date',

@@ -10,11 +10,11 @@
 
 namespace MpaCustomDoctrineHydratorTest\Factory;
 
-use MpaCustomDoctrineHydrator\Form\Element\HydratedDate;
+use MpaCustomDoctrineHydrator\Form\Element\Date;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
-use Zend\Form\Element\Date;
+use Zend\Form\Element\Date as ZendDate;
 
-class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
+class DateElementFactoryTest extends \PHPUnit_Framework_TestCase
 {
     protected $serviceManager;
 
@@ -29,8 +29,8 @@ class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
         $formElementManager = $this->serviceManager->get('FormElementManager');
 
         $this->assertInstanceOf(
-            HydratedDate::class,
-            $formElementManager->get('MpaCustomDoctrineHydrator\Form\Element\HydratedDate')
+            Date::class,
+            $formElementManager->get('MpaCustomDoctrineHydrator\Form\Element\Date')
         );
     }
 
@@ -39,7 +39,7 @@ class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
         $formElementManager = $this->serviceManager->get('FormElementManager');
 
         $this->assertInstanceOf(
-            HydratedDate::class,
+            Date::class,
             $formElementManager->get('Zend\Form\Element\Date')
         );
     }
@@ -48,9 +48,9 @@ class HydratedDateFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $formElementManager = $this->serviceManager->get('FormElementManager');
 
-        $this->assertInstanceOf(HydratedDate::class, $formElementManager->get('Date'));
-        $this->assertInstanceOf(HydratedDate::class, $formElementManager->get('Zend\Form\Element\Date'));
-        $this->assertInstanceOf(HydratedDate::class, $formElementManager->get(Date::class));
+        $this->assertInstanceOf(Date::class, $formElementManager->get('Date'));
+        $this->assertInstanceOf(Date::class, $formElementManager->get('Zend\Form\Element\Date'));
+        $this->assertInstanceOf(Date::class, $formElementManager->get(ZendDate::class));
     }
 
     public function testHasAPlaceholderAsAttribute()

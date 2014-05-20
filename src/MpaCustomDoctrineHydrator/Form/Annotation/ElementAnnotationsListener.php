@@ -86,7 +86,7 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
                 break;
             case 'date':
                 /**
-                 * grab the filters of the HydratedDate Element
+                 * grab the filters of the Date Element
                  */
                 $filters = $this->formElementManager->get('Date')->getInputSpecification()['filters'];
                 foreach ($filters as $filter) {
@@ -168,7 +168,7 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
                 }
                 break;
             /**
-             * grab the validators of the HydratedDate Element
+             * grab the validators of the Date Element
              */
             case 'date':
                 $validators = $this->formElementManager->get('Date')->getInputSpecification()['validators'];

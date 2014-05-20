@@ -11,10 +11,10 @@
 namespace MpaCustomDoctrineHydrator\Form\Element;
 
 use Zend\Filter\StringTrim;
-use Zend\Form\Element\Date;
+use Zend\Form\Element\Date as ZendDate;
 use Zend\InputFilter\InputProviderInterface;
 
-class HydratedDate extends Date implements InputProviderInterface
+class Date extends ZendDate implements InputProviderInterface
 {
     protected $parentLocator;
 
@@ -44,7 +44,7 @@ class HydratedDate extends Date implements InputProviderInterface
 
     /**
      * Provide default input rules for this element
-     * Attaches default validators for the HydratedDate input.
+     * Attaches default validators for the Date input.
      *
      * @return array
      */

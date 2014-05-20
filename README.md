@@ -78,7 +78,7 @@ In your forms classes, when not using the ```FormElementManager``` :
 $this->add(
             [
                 'name'       => 'mydate',
-                'type'       => 'MpaCustomDoctrineHydrator\Form\Element\HydratedDate',
+                'type'       => 'MpaCustomDoctrineHydrator\Form\Element\Date',
                 'attributes' => [
                     'id'    => 'mydate',
                 ],
@@ -148,7 +148,7 @@ public function getInputFilterSpecification()
 }
 ```
 
-/!\ If you don't create your fieldsets/forms via the ```FormElementManager```, you must manually inject the SL so the ```HydratedDate``` element can fetch the configuration
+/!\ If you don't create your fieldsets/forms via the ```FormElementManager```, you must manually inject the SL so the ```Date``` element can fetch the configuration
 ```php
 $this->getFormFactory()->getFormElementManager()->setServiceLocator($this->sm);
 ```

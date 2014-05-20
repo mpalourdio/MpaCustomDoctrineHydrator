@@ -10,12 +10,12 @@
 
 namespace MpaCustomDoctrineHydratorTest\Form\Element;
 
-use MpaCustomDoctrineHydrator\Form\Element\HydratedDate;
+use MpaCustomDoctrineHydrator\Form\Element\Date;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 use Zend\Filter\StringTrim;
-use Zend\Validator\Date;
+use Zend\Validator\Date as ZendDateValidator;
 
-class HydratedDateTest extends \PHPUnit_Framework_TestCase
+class DateTest extends \PHPUnit_Framework_TestCase
 {
     protected $serviceManager;
 
@@ -28,7 +28,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testWeCanGrabAttributesFromElement()
     {
-        $element = new HydratedDate();
+        $element = new Date();
         $element->setAttribute('placeholder', 'ddmmyyyy');
 
         $this->assertInternalType('array', $element->getAttributes());
@@ -36,7 +36,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testElementHasInputSpecification()
     {
-        $element = new HydratedDate();
+        $element = new Date();
         $element->setName('hydrated');
 
         $this->assertInternalType('array', $element->getInputSpecification());
@@ -44,7 +44,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testElementHasItsOwnFilters()
     {
-        $element = new HydratedDate();
+        $element = new Date();
         $element->setName('hydrated');
         $inputSpec = $element->getInputSpecification();
 
@@ -63,13 +63,13 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testElementHasItsParentValidators()
     {
-        $element = new HydratedDate();
+        $element = new Date();
         $element->setName('hydrated');
         $inputSpec = $element->getInputSpecification();
 
         $this->assertArrayHasKey('validators', $inputSpec, 'testElementHasItsParentValidators#1');
         $this->assertInstanceOf(
-            Date::class,
+            ZendDateValidator::class,
             $inputSpec['validators'][0],
             'testElementHasItsParentValidators#2'
         );
@@ -78,7 +78,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
     public function testCanSetOptionsForFormat()
     {
         $format  = 'd.m.Y';
-        $element = new HydratedDate();
+        $element = new Date();
         $element->setName('hydrated');
         $element->setOptions(['date_format' => $format]);
 
@@ -87,7 +87,7 @@ class HydratedDateTest extends \PHPUnit_Framework_TestCase
 
     public function testExtendsDateButIsAnInputText()
     {
-        $element = new HydratedDate();
+        $element = new Date();
 
         $this->assertEquals('text', $element->getAttribute('type'));
     }

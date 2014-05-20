@@ -11,24 +11,24 @@
 namespace MpaCustomDoctrineHydrator\Factory;
 
 use Locale;
-use MpaCustomDoctrineHydrator\Form\Element\HydratedDate;
+use MpaCustomDoctrineHydrator\Form\Element\Date;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class HydratedDateFactory implements FactoryInterface
+class DateElementFactory implements FactoryInterface
 {
     /**
      * Create service
      *
      * @param  ServiceLocatorInterface $serviceLocator
-     * @return HydratedDate
+     * @return Date
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $parentLocator = $serviceLocator->getServiceLocator();
         $config        = $parentLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
 
-        $formElement = new HydratedDate();
+        $formElement = new Date();
         $formElement->setFormat($config['date_format']);
         $formElement->setAttribute('placeholder', $config['date_placeholder']);
 
