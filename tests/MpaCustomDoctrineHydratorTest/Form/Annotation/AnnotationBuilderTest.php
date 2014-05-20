@@ -40,7 +40,7 @@ class AnnotationBuilderTest extends \PHPUnit_Framework_TestCase
         $entity = new Birthday();
         $spec   = $this->builder->getFormSpecification($entity);
 
-        $this->assertCount(6, ($spec['elements']));
+        $this->assertCount(7, ($spec['elements']));
     }
 
     public function testAnnotationBuilderHasFormFactoryInjected()
