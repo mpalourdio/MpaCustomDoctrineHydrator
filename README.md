@@ -57,7 +57,7 @@ $form = $this->sm->get('annotationbuilder')->createForm('User');
 Then, hydrate your form
 
 ```php
-$hydrator = $this->sm->get('customdoctrinehydrator')->setEntity('Application\Entity\Myentity');
+$hydrator = $this->sm->get('hydrator')->setEntity('Application\Entity\Myentity');
 $form->setHydrator($hydrator);
 ```
 
@@ -69,7 +69,7 @@ Usage (the hard and decoupled way)
 =================================
 
 ```php
-$hydrator = $this->sm->get('customdoctrinehydrator')->setEntity('Application\Entity\Myentity');
+$hydrator = $this->sm->get('hydrator')->setEntity('Application\Entity\Myentity');
 $form->setHydrator($hydrator);
 ```
 In your forms classes, when not using the ```FormElementManager``` :

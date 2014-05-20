@@ -14,7 +14,7 @@ use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
 
-class CustomHydratorFactoryTest extends \PHPUnit_Framework_TestCase
+class EntityAttacherFactoryTest extends \PHPUnit_Framework_TestCase
 {
     protected $serviceManager;
 
@@ -27,7 +27,7 @@ class CustomHydratorFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCustomHydratorIsADoctrineObjectInstance()
     {
         $customHydrator = $this->serviceManager
-            ->get('customdoctrinehydrator')
+            ->get('hydrator')
             ->setEntity(Birthday::class);
 
         $this->assertInstanceOf(DoctrineObject::class, $customHydrator);
@@ -36,7 +36,7 @@ class CustomHydratorFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCustomHydratorHasDateStrategiesAttached()
     {
         $customHydrator = $this->serviceManager
-            ->get('customdoctrinehydrator')
+            ->get('hydrator')
             ->setEntity(Birthday::class);
 
         $this->assertTrue($customHydrator->hasStrategy('date'));

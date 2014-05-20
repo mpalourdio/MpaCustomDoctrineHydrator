@@ -9,15 +9,15 @@
  */
 
 use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
-use MpaCustomDoctrineHydrator\Factory\CustomHydratorFactory;
-use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFilterFactory;
 use MpaCustomDoctrineHydrator\Factory\DateElementFactory;
+use MpaCustomDoctrineHydrator\Factory\DateToDateTimeFilterFactory;
+use MpaCustomDoctrineHydrator\Factory\EntityAttacherFactory;
 
 return [
     'service_manager' => [
         'factories' => [
-            'customdoctrinehydrator' => CustomHydratorFactory::class,
-            'annotationbuilder'      => AnnotationBuilderFactory::class,
+            'hydrator'          => EntityAttacherFactory::class,
+            'annotationbuilder' => AnnotationBuilderFactory::class,
         ],
     ],
     'filters'         => [

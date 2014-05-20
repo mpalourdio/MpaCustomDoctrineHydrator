@@ -10,24 +10,28 @@
 
 namespace MpaCustomDoctrineHydrator\Factory;
 
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Locale;
-use MpaCustomDoctrineHydrator\Services\CustomHydrator;
+use MpaCustomDoctrineHydrator\Services\EntityAttacher;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class CustomHydratorFactory implements FactoryInterface
+class EntityAttacherFactory implements FactoryInterface
 {
     /**
      * Create service
      *
      * @param  ServiceLocatorInterface $serviceLocator
-     * @return CustomHydrator
+     * @return EntityAttacher
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return new CustomHydrator(
-            $serviceLocator->get('doctrine.entitymanager.orm_default'),
-            $serviceLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()]
+        $entityManager = $serviceLocator->get('doctrine.entitymanager.orm_default');
+
+        return new EntityAttacher(
+            $entityManager,
+            $serviceLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()],
+            new DoctrineObject($entityManager)
         );
     }
 }
