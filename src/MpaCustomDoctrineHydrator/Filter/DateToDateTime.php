@@ -49,7 +49,7 @@ class DateToDateTime extends AbstractFilter implements FilterInterface
     }
 
     /**
-     * Allow the format key to bey format and date_format
+     * Allow the format key to be format and date_format
      * For consistency with the ZF2 Date Element
      *
      * @param  array $options
