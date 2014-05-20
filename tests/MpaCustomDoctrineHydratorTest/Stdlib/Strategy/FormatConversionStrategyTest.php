@@ -28,7 +28,7 @@ class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    public function testDateToStringStrategyCanExtractAndFormatDate()
+    public function testFormatConversionStrategyCanExtractAndFormatDate()
     {
         $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
         $today    = new \DateTime('2014-05-01');
@@ -36,7 +36,7 @@ class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('01/05/2014', $strategy->extract($today));
     }
 
-    public function testDateToStringStrategyCanExtractAndFormatDateAndTime()
+    public function testFormatConversionStrategyCanExtractAndFormatDateAndTime()
     {
         $strategy = new FormatConversionStrategy($this->dateConfig['datetime_format']);
         $today    = new \DateTime('2014-05-01 05:11:24');
@@ -44,7 +44,7 @@ class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('01/05/2014 05:11:24', $strategy->extract($today));
     }
 
-    public function testDateToStringStrategyReturnsANullValueIfNullPassedToConstructor()
+    public function testFormatConversionReturnsANullValueIfNullPassedToConstructor()
     {
         $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
         $today    = null;
@@ -55,7 +55,7 @@ class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testDateToStringStrategyThrowsException()
+    public function testFormatConversionStrategyThrowsException()
     {
         $strategy = new FormatConversionStrategy($this->dateConfig);
         $today    = 'chewbacca';
