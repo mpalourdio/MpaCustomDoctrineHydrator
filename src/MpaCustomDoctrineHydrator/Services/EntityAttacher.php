@@ -11,11 +11,13 @@
 namespace MpaCustomDoctrineHydrator\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\FormatConversionStrategy;
 
 class EntityAttacher
 {
+    /** @var $objectManager EntityManager */
     protected $objectManager;
     protected $dateConfig;
     protected $doctrineObject;
