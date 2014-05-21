@@ -54,6 +54,11 @@ class EntityAttacher
                     $column,
                     new FormatConversionStrategy($this->dateConfig['datetime_format'])
                 );
+            } elseif ('time' === $type) {
+                $this->doctrineObject->addStrategy(
+                    $column,
+                    new FormatConversionStrategy($this->dateConfig['time_format'])
+                );
             }
         }
 
