@@ -35,6 +35,13 @@ class Birthday
     /**
      * @var \DateTime
      *
+     * @ORM\Column(type="datetimetz", nullable=false)
+     */
+    protected $datetimetz;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(type="datetime", nullable=false)
      */
     protected $meeting;
@@ -129,6 +136,25 @@ class Birthday
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatetimetz()
+    {
+        return $this->datetimetz;
+    }
+
+    /**
+     * @param \DateTime $datetimetz
+     * @return self
+     */
+    public function setDatetimetz($datetimetz)
+    {
+        $this->datetimetz = $datetimetz;
+
+        return $this;
     }
 
     /**
