@@ -19,6 +19,9 @@ use Zend\Validator\Callback;
 
 class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
 {
+    protected $objectManager;
+    protected $formElementManager;
+
     /**
      * @param ObjectManager      $objectManager
      * @param FormElementManager $formElementManager
