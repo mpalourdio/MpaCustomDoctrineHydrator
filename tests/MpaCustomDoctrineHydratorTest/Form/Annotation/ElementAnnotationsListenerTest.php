@@ -66,4 +66,44 @@ class ElementAnnotationsListenerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($listener->handleExcludeField($event));
     }
+
+    public function testNoMetadataReturnsNull()
+    {
+        $event = new Event();
+
+        $event->setParam('metadata', null);
+
+        $listener = new ElementAnnotationsListener(
+            $this->entityManager,
+            $this->formElementManager
+        );
+
+        $this->assertNull($listener->handleFilterField($event));
+    }
+
+    public function testMetadataButNoNameReturnsNull()
+    {
+        $event    = new Event();
+        $metadata = $this->entityManager->getClassMetadata(Birthday::class);
+
+        $event->setParam('metadata', $metadata);
+
+        $listener = new ElementAnnotationsListener(
+            $this->entityManager,
+            $this->formElementManager
+        );
+
+        $this->assertNull($listener->handleFilterField($event));
+    }
+
+    public function testNoMappingReturnsNull()
+    {
+        $event    = new Event();
+        $listener = new ElementAnnotationsListener(
+            $this->entityManager,
+            $this->formElementManager
+        );
+
+        $this->assertNull($listener->handleValidatorField($event));
+    }
 }
