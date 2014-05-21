@@ -162,8 +162,3 @@ $myForm->getFormFactory()->getInputFilterFactory()->setDefaultFilterChain($chain
 ```
 
 You can use the provided strategy as standalone with your hydrators too. **Date Time and Time handling work the same way as the example above**, with only few changes, like the 'format' keys names.
-
-TODO
-====
-
-Handle Time.
