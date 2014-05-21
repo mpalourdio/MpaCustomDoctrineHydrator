@@ -44,6 +44,14 @@ class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('01/05/2014 05:11:24', $strategy->extract($today));
     }
 
+    public function testFormatConversionStrategyCanExtractAndFormatTime()
+    {
+        $strategy = new FormatConversionStrategy($this->dateConfig['time_format']);
+        $today    = new \DateTime('05:11:24');
+
+        $this->assertEquals('05:11:24', $strategy->extract($today));
+    }
+
     public function testFormatConversionReturnsANullValueIfNullPassedToConstructor()
     {
         $strategy = new FormatConversionStrategy($this->dateConfig['date_format']);
