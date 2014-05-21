@@ -12,6 +12,7 @@ namespace MpaCustomDoctrineHydrator\Factory;
 
 use Locale;
 use MpaCustomDoctrineHydrator\Form\Element\Time;
+use Zend\Form\FormElementManager;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -25,6 +26,7 @@ class TimeElementFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
+        /** @var  $serviceLocator FormElementManager */
         $parentLocator = $serviceLocator->getServiceLocator();
         $config        = $parentLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
 
