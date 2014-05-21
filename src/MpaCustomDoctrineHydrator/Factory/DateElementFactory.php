@@ -26,7 +26,7 @@ class DateElementFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var  $serviceLocator FormElementManager */
+        /** @var $serviceLocator FormElementManager */
         $parentLocator = $serviceLocator->getServiceLocator();
         $config        = $parentLocator->get('Config')['mpacustomdoctrinehydrator']['formats'][Locale::getDefault()];
 

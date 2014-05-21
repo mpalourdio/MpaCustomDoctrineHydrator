@@ -26,7 +26,7 @@ class TimeToDateTimeFilterFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var  $serviceLocator FilterPluginManager */
+        /** @var $serviceLocator FilterPluginManager */
         $parentLocator = $serviceLocator->getServiceLocator();
 
         $filter = new TimeToDateTime(
