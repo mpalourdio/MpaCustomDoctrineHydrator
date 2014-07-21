@@ -13,9 +13,10 @@ namespace MpaCustomDoctrineHydrator\Services;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
+use MpaCustomDoctrineHydrator\Interfaces\EntityAttacherInterface;
 use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\FormatConversionStrategy;
 
-class EntityAttacher
+class EntityAttacher implements EntityAttacherInterface
 {
     /** @var $objectManager EntityManager */
     protected $objectManager;
