@@ -18,7 +18,8 @@ class FormatConversionStrategy implements StrategyInterface
     protected $conversionFormat;
 
     /**
-     * @param string $conversionFormat
+     * @param  string $conversionFormat
+     * @throws \InvalidArgumentException
      */
     public function __construct($conversionFormat)
     {
