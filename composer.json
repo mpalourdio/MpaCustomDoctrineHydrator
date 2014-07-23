@@ -28,12 +28,12 @@
         "squizlabs/php_codesniffer":   "1.5.*"
     },
     "autoload":    {
-        "psr-0": {
+        "psr-4": {
             "MpaCustomDoctrineHydrator\\":     "src/"
         }
     },
     "autoload-dev":    {
-        "psr-0": {
+        "psr-4": {
             "MpaCustomDoctrineHydratorTest\\": "tests/"
         }
     },
