@@ -43,7 +43,7 @@ class DateToDateTimeTest extends \PHPUnit_Framework_TestCase
 
     public function testCanManuallySetformat()
     {
-        $filter        = new DateToDateTime();
+        $filter = new DateToDateTime();
         $filter->setFormat('d/m/Y');
 
         $this->assertEquals('DateTime', get_class($filter('10/12/2012')));
@@ -51,7 +51,7 @@ class DateToDateTimeTest extends \PHPUnit_Framework_TestCase
 
     public function testFormatAndDateFormatAreValidConfigKeysForFilterOptions()
     {
-        $filter        = new DateToDateTime();
+        $filter = new DateToDateTime();
 
         $filter->setOptions(['date_format' => 'date_format']);
         $this->assertEquals($filter->getFormat(), 'date_format');
