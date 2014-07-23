@@ -29,7 +29,11 @@
     },
     "autoload":    {
         "psr-0": {
-            "MpaCustomDoctrineHydrator\\":     "src/",
+            "MpaCustomDoctrineHydrator\\":     "src/"
+        }
+    },
+    "autoload-dev":    {
+        "psr-0": {
             "MpaCustomDoctrineHydratorTest\\": "tests/"
         }
     },
