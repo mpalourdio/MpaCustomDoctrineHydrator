@@ -36,7 +36,7 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
      * Exclude GENERATOR_TYPE_IDENTITY && GENERATOR_TYPE_CUSTOM
      * Because most of the time they are custom auto-incrementers
      *
-     * @param EventInterface $event
+     * @param  EventInterface $event
      * @internal
      * @return bool
      */
@@ -50,7 +50,6 @@ class ElementAnnotationsListener extends DoctrineElementAnnotationsListener
                ($metadata->generatorType === ClassMetadata::GENERATOR_TYPE_IDENTITY ||
                 $metadata->generatorType === ClassMetadata::GENERATOR_TYPE_CUSTOM);
     }
-
 
     /**
      * @param EventInterface $event

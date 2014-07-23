@@ -147,7 +147,7 @@ class Birthday
     }
 
     /**
-     * @param \DateTime $datetimetz
+     * @param  \DateTime $datetimetz
      * @return self
      */
     public function setDatetimetz($datetimetz)
@@ -242,7 +242,7 @@ class Birthday
     }
 
     /**
-     * @param \DateTime $meeting
+     * @param  \DateTime $meeting
      * @return self
      */
     public function setMeeting($meeting)
