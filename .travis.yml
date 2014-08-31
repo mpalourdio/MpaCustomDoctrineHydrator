@@ -6,9 +6,14 @@ php:
   - hhvm
   - hhvm-nightly
 
+script:
+  - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/
+  - ./vendor/bin/phpunit --coverage-clover=coverage.clover
+
 before_script:
   - composer self-update
   - composer update --prefer-source
 
-script:
-  - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover

@@ -2,9 +2,8 @@ before_commands:
     - "composer update --prefer-source"
 
 tools:
-    php_code_coverage:
-        enabled: true
-        test_command: ./vendor/bin/phpunit -c phpunit.xml.dist
+    external_code_coverage: true
+    php_code_coverage: true
     php_code_sniffer:
         enabled: true
         config:
@@ -30,8 +29,8 @@ tools:
     php_pdepend:
         enabled: true
         excluded_dirs: ["tests", "vendor"]
-    php_analyzer: true
     php_analyzer:
+        enabled: true
         filter:
             paths: ["src/*", "tests/*"]
     sensiolabs_security_checker: true
