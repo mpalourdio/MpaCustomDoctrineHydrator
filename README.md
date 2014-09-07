@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/mpalourdio/MpaCustomDoctrineHydrator.png?branch=master)](https://travis-ci.org/mpalourdio/MpaCustomDoctrineHydrator)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/badges/quality-score.png?s=2c109f8b765d059d4b33cb1f6195eae07b2fdb1c)](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/)
 [![Code Coverage](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/badges/coverage.png?s=b249873714b3c85f08dfcd9306bd4c6b9cb19ba0)](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/)
-
+[![PHP 5.5+][ico-engine]][lang]
+[![MIT Licensed][ico-license]][license]
 
 MpaCustomDoctrineHydrator
 =========================
@@ -162,3 +163,8 @@ $myForm->getFormFactory()->getInputFilterFactory()->setDefaultFilterChain($chain
 ```
 
 You can use the provided strategy as standalone with your hydrators too. **Date Time and Time handling work the same way as the example above**, with only few changes, like the 'format' keys names.
+
+[ico-engine]: http://img.shields.io/badge/php-5.5+-8892BF.svg
+[lang]: http://php.net
+[ico-license]: http://img.shields.io/packagist/l/adlawson/veval.svg
+[license]: LICENSE
