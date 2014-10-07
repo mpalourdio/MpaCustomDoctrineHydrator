@@ -6,6 +6,10 @@ php:
   - hhvm
   - hhvm-nightly
 
+matrix:
+  allow_failures:
+    - php: hhvm-nightly
+
 script:
   - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/
   - ./vendor/bin/phpunit --coverage-clover=coverage.clover
