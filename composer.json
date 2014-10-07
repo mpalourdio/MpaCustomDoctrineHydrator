@@ -17,15 +17,21 @@
         }
     ],
     "require":      {
-        "php":                              ">=5.5",
-        "doctrine/doctrine-orm-module":     "0.*",
-        "zendframework/zend-form":          "2.3.*",
-        "zendframework/zend-modulemanager": "2.3.*"
+        "php":                               ">=5.5",
+        "doctrine/doctrine-orm-module":      "0.*",
+        "zendframework/zend-servicemanager": "~2.3",
+        "zendframework/zend-form":           "~2.3",
+        "zendframework/zend-filter":         "~2.3",
+        "zendframework/zend-eventmanager":   "~2.3",
+        "zendframework/zend-validator":      "~2.3",
+        "zendframework/zend-inputfilter":    "~2.3",
+        "zendframework/zend-stdlib":         "~2.3",
+        "zendframework/zend-modulemanager":  "~2.3"
     },
     "require-dev":  {
-        "zendframework/zendframework": "2.3.*",
-        "phpunit/phpunit":             "4.*",
-        "squizlabs/php_codesniffer":   "1.5.*"
+        "zendframework/zendframework": "~2.3",
+        "phpunit/phpunit":             "~4.3",
+        "squizlabs/php_codesniffer":   "~1.5"
     },
     "autoload":     {
         "psr-4":    {
