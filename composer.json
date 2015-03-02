@@ -34,12 +34,9 @@
         "squizlabs/php_codesniffer":   "~1.5"
     },
     "autoload":     {
-        "psr-4":    {
+        "psr-4": {
             "MpaCustomDoctrineHydrator\\": "src/"
-        },
-        "classmap": [
-            "Module.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
