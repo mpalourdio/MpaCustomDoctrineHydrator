@@ -5,23 +5,21 @@ php:
   - 5.6
   - 7
   - hhvm
-  - hhvm-nightly
 
 matrix:
   fast_finish: true
   allow_failures:
     - php: 7
     - php: hhvm
-    - php: hhvm-nightly
 
 script:
   - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/
-  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != 'hhvm-nightly' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then ./vendor/bin/phpunit --coverage-clover=coverage.clover; fi
+  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then ./vendor/bin/phpunit --coverage-clover=coverage.clover; fi
 
 before_script:
   - composer self-update
   - composer update --prefer-source
 
 after_script:
-  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != 'hhvm-nightly' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != 'hhvm-nightly' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
