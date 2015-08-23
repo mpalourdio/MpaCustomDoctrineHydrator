@@ -41,6 +41,6 @@ return [
             'Zend\Form\Element\Date'     => 'Date',
             'Zend\Form\Element\DateTime' => 'DateTime',
             'Zend\Form\Element\Time'     => 'Time',
-        ]
+        ],
     ],
 ];
