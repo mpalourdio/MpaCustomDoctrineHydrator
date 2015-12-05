@@ -1,40 +1,40 @@
 {
-    "name":         "mpalourdio/mpa-custom-doctrine-hydrator",
-    "description":  "Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.",
-    "license":      "MIT",
-    "keywords":     [
+    "name": "mpalourdio/mpa-custom-doctrine-hydrator",
+    "description": "Module that helps you deal with dates for DoctrineModule & ZF2 : filtering, hydration, Locale etc.",
+    "license": "MIT",
+    "keywords": [
         "doctrine",
         "orm",
         "module",
         "zf2"
     ],
-    "homepage":     "https://github.com/mpalourdio/MpaCustomDoctrineHydrator",
-    "authors":      [
+    "homepage": "https://github.com/mpalourdio/MpaCustomDoctrineHydrator",
+    "authors": [
         {
-            "name":     "@mpalourdio",
-            "email":    "mpalourdio@gmail.com",
+            "name": "@mpalourdio",
+            "email": "mpalourdio@gmail.com",
             "homepage": "https://github.com/mpalourdio"
         }
     ],
-    "require":      {
-        "php":                               ">=5.5",
-        "ext-intl":                          "*",
-        "doctrine/doctrine-orm-module":      "~0.8",
+    "require": {
+        "php": ">=5.5",
+        "ext-intl": "*",
+        "doctrine/doctrine-orm-module": "~0.8",
         "zendframework/zend-servicemanager": "~2.3",
-        "zendframework/zend-form":           "~2.3",
-        "zendframework/zend-filter":         "~2.3",
-        "zendframework/zend-eventmanager":   "~2.3",
-        "zendframework/zend-validator":      "~2.3",
-        "zendframework/zend-inputfilter":    "~2.3",
-        "zendframework/zend-stdlib":         "~2.3",
-        "zendframework/zend-modulemanager":  "~2.3"
+        "zendframework/zend-form": "~2.3",
+        "zendframework/zend-filter": "~2.3",
+        "zendframework/zend-eventmanager": "~2.3",
+        "zendframework/zend-validator": "~2.3",
+        "zendframework/zend-inputfilter": "~2.3",
+        "zendframework/zend-stdlib": "~2.3",
+        "zendframework/zend-modulemanager": "~2.3"
     },
-    "require-dev":  {
+    "require-dev": {
         "zendframework/zendframework": "~2.3",
-        "phpunit/phpunit":             "~4.4",
-        "squizlabs/php_codesniffer":   "~2.3"
+        "phpunit/phpunit": "~4.4",
+        "squizlabs/php_codesniffer": "~2.3"
     },
-    "autoload":     {
+    "autoload": {
         "psr-4": {
             "MpaCustomDoctrineHydrator\\": "src/"
         }
@@ -44,7 +44,7 @@
             "MpaCustomDoctrineHydratorTest\\": "tests/"
         }
     },
-    "extra":        {
+    "extra": {
         "branch-alias": {
             "dev-master": "0.5.x-dev"
         }
