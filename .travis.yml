@@ -15,12 +15,12 @@ matrix:
 
 script:
   - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/
-  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then ./vendor/bin/phpunit --coverage-clover=coverage.clover; fi
+  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ]; then ./vendor/bin/phpunit --coverage-clover=coverage.clover; fi
 
 before_script:
   - composer self-update
   - composer update --prefer-source
 
 after_script:
-  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ] && [ $TRAVIS_PHP_VERSION != '7' ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [ $TRAVIS_PHP_VERSION != 'hhvm' ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
