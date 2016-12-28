@@ -5,6 +5,11 @@
 [![PHP 5.6+][ico-engine]][lang]
 [![MIT Licensed][ico-license]][license]
 
+[ico-engine]: http://img.shields.io/badge/php-5.6+-8892BF.svg
+[lang]: http://php.net
+[ico-license]: http://img.shields.io/packagist/l/adlawson/veval.svg
+[license]: LICENSE
+
 MpaCustomDoctrineHydrator
 =========================
 
@@ -167,8 +172,3 @@ $myForm->getFormFactory()->getInputFilterFactory()->setDefaultFilterChain($chain
 ```
 
 You can use the provided strategy as standalone with your hydrators too. **Date Time and Time handling work the same way as the example above**, with only few changes, like the 'format' keys names.
-
-[ico-engine]: http://img.shields.io/badge/php-5.5+-8892BF.svg
-[lang]: http://php.net
-[ico-license]: http://img.shields.io/packagist/l/adlawson/veval.svg
-[license]: LICENSE
