@@ -2,10 +2,10 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/badges/quality-score.png?s=2c109f8b765d059d4b33cb1f6195eae07b2fdb1c)](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/)
 [![Code Coverage](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/badges/coverage.png?s=b249873714b3c85f08dfcd9306bd4c6b9cb19ba0)](https://scrutinizer-ci.com/g/mpalourdio/MpaCustomDoctrineHydrator/)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/58b40eee-e087-4489-b169-71434b8c2879/mini.png)](https://insight.sensiolabs.com/projects/58b40eee-e087-4489-b169-71434b8c2879)
-[![PHP 5.6+][ico-engine]][lang]
+[![PHP 7.0+][ico-engine]][lang]
 [![MIT Licensed][ico-license]][license]
 
-[ico-engine]: http://img.shields.io/badge/php-5.6+-8892BF.svg
+[ico-engine]: http://img.shields.io/badge/php-7.0+-8892BF.svg
 [lang]: http://php.net
 [ico-license]: http://img.shields.io/packagist/l/adlawson/veval.svg
 [license]: LICENSE
@@ -25,7 +25,7 @@ The hydrator service adds a strategy to every date column in your entity for ext
 
 Requirements
 ============
-PHP 5.6+ - Only Composer installation supported
+PHP 7.0+ - Only Composer installation supported
 
 
 Installation
