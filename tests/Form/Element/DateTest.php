@@ -12,10 +12,11 @@ namespace MpaCustomDoctrineHydratorTest\Form\Element;
 
 use MpaCustomDoctrineHydrator\Form\Element\Date;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 use Zend\Filter\StringTrim;
 use Zend\Validator\Date as ZendDateValidator;
 
-class DateTest extends \PHPUnit_Framework_TestCase
+class DateTest extends TestCase
 {
     protected $serviceManager;
 

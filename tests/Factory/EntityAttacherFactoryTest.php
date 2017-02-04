@@ -13,8 +13,9 @@ namespace MpaCustomDoctrineHydratorTest\Factory;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 
-class EntityAttacherFactoryTest extends \PHPUnit_Framework_TestCase
+class EntityAttacherFactoryTest extends TestCase
 {
     protected $serviceManager;
 

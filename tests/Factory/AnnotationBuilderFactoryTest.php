@@ -13,8 +13,9 @@ namespace MpaCustomDoctrineHydratorTest\Factory;
 use MpaCustomDoctrineHydrator\Factory\AnnotationBuilderFactory;
 use MpaCustomDoctrineHydrator\Form\Annotation\AnnotationBuilder;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 
-class AnnotationBuilderFactoryTest extends \PHPUnit_Framework_TestCase
+class AnnotationBuilderFactoryTest extends TestCase
 {
     protected $serviceManager;
 

@@ -13,9 +13,10 @@ namespace MpaCustomDoctrineHydratorTest\Form\Annotation;
 use MpaCustomDoctrineHydrator\Form\Annotation\ElementAnnotationsListener;
 use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 use Zend\EventManager\Event;
 
-class ElementAnnotationsListenerTest extends \PHPUnit_Framework_TestCase
+class ElementAnnotationsListenerTest extends TestCase
 {
     protected $builder;
     protected $formElementManager;

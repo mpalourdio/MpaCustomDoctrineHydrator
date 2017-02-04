@@ -12,9 +12,10 @@ namespace MpaCustomDoctrineHydratorTest\Factory;
 
 use MpaCustomDoctrineHydrator\Form\Element\DateTime;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 use Zend\Form\Element\DateTime as ZendDateTime;
 
-class DateTimeElementFactoryTest extends \PHPUnit_Framework_TestCase
+class DateTimeElementFactoryTest extends TestCase
 {
     protected $serviceManager;
 

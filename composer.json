@@ -19,19 +19,23 @@
     "require": {
         "php": "^7.0",
         "ext-intl": "*",
-        "doctrine/doctrine-orm-module": "~1.1",
-        "zendframework/zend-servicemanager": "~2.3",
-        "zendframework/zend-form": "~2.3",
-        "zendframework/zend-filter": "~2.3",
-        "zendframework/zend-eventmanager": "~2.3",
-        "zendframework/zend-validator": "~2.3",
-        "zendframework/zend-inputfilter": "~2.3",
-        "zendframework/zend-stdlib": "~2.3",
-        "zendframework/zend-modulemanager": "~2.3"
+        "doctrine/doctrine-orm-module": "^1.1",
+        "zendframework/zend-servicemanager": "^2.3",
+        "zendframework/zend-form": "^2.3",
+        "zendframework/zend-filter": "^2.3",
+        "zendframework/zend-eventmanager": "^2.3",
+        "zendframework/zend-validator": "^2.3",
+        "zendframework/zend-inputfilter": "^2.3",
+        "zendframework/zend-stdlib": "^2.3",
+        "zendframework/zend-modulemanager": "^2.3",
+        "zendframework/zend-view": "^2.3",
+        "zendframework/zend-serializer": "^2.3",
+        "zendframework/zend-log": "^2.3",
+        "zendframework/zend-i18n": "^2.3",
+        "zendframework/zend-code": "^2.3"
     },
     "require-dev": {
-        "zendframework/zendframework": "~2.3",
-        "phpunit/phpunit": "^5.6.0",
+        "phpunit/phpunit": "^6.0.3",
         "squizlabs/php_codesniffer": "^2.6.2"
     },
     "autoload": {

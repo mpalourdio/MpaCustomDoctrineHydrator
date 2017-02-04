@@ -13,10 +13,11 @@ namespace MpaCustomDoctrineHydratorTest\Form\Annotation;
 use MpaCustomDoctrineHydrator\Form\Annotation\AnnotationBuilder;
 use MpaCustomDoctrineHydratorTest\Assets\Entity\Birthday;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 use Zend\Form\Factory;
 use Zend\Form\Form;
 
-class AnnotationBuilderTest extends \PHPUnit_Framework_TestCase
+class AnnotationBuilderTest extends TestCase
 {
     protected $builder;
     protected $formElementManager;

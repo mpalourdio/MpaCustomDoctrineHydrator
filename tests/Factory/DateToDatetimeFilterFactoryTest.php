@@ -12,8 +12,9 @@ namespace MpaCustomDoctrineHydratorTest\Factory;
 
 use MpaCustomDoctrineHydrator\Filter\DateToDateTime;
 use MpaCustomDoctrineHydratorTest\Util\ServiceManagerFactory;
+use PHPUnit\Framework\TestCase;
 
-class DateToDatetimeFilterFactoryTest extends \PHPUnit_Framework_TestCase
+class DateToDatetimeFilterFactoryTest extends TestCase
 {
     protected $serviceManager;
 

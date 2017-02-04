@@ -11,8 +11,9 @@
 namespace MpaCustomDoctrineHydratorTest\Stdlib\Strategy;
 
 use MpaCustomDoctrineHydrator\Stdlib\Hydrator\Strategy\FormatConversionStrategy;
+use PHPUnit\Framework\TestCase;
 
-class FormatConversionStrategyTest extends \PHPUnit_Framework_TestCase
+class FormatConversionStrategyTest extends TestCase
 {
     protected $dateConfig;
 
